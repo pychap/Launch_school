@@ -5,7 +5,9 @@
 * learn to build applications
 * adopt a debugging mindset
 
-### 3 main buckets:
+------
+
+### Three main buckets:
 * Learning to program procedurally
 * OOP
 * Other:
