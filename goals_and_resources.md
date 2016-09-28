@@ -22,5 +22,23 @@
 ### Learning to Code vs Learning to Program
 * first, Ruby grammar & syntax (English grammar/vocabulary)
 * second, building applications (writing essays/novels)
-* very frustrating jump between the two
+* very frustrating jump between the two (doing a lot of syntax lookup)
 * pseudo code; using plain english to map out the code
+
+------
+
+### Looking for help
+* Search using the "right phrases"
+  * use the stack trace
+  * read error messages
+  * adding "ruby"
+* Stack Overflow
+* Ruby docs
+  * not Rails docs
+
+------
+
+### Asking for help
+* treat LS TA's like co-workers
+* push everything to Github
+* forums, make use of frequently 
