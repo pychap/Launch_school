@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 ## Notes for Ruby
 Thanks to "Ruby the Hard Way"
 
+=======
+## Notes for Ruby (part credit: Ruby Hard Way)
+The trick to remembering all the syntax rules in Ruby is to not remember them -- you need to be able to refresh your memory by experimenting with code.
+>>>>>>> c44e0a260106c82fa28c3eb3496f9c1298df93f9
 ### When should I use  `puts` instead of `return` in a function?
 
 The `return` from a function gives the line of code that called the function a result. You can think of a function as taking input through its arguments, and returning output through `return`. The `puts` is *completely* unrelated to this, and only deals with printing output to the terminal.
+
+### Declaring class name
+Be sure to use `CamelCase`
+
+`class MyCoolClass   
+end`
 
 ### The Truth Terms
 * `&&` (and)
