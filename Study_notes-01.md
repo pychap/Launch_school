@@ -1,4 +1,5 @@
 ## Notes for Ruby
+Thanks to "Ruby the Hard Way"
 
 ### When should I use  `puts` instead of `return` in a function?
 
@@ -157,4 +158,4 @@ The `return` from a function gives the line of code that called the function a r
     <td>true</td>
   </tr>
 </table>
->> I'm hoping this is a good tool to use to study with
+> I'm hoping this is a good tool to use to study with
