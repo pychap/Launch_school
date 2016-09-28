@@ -31,6 +31,7 @@
 * Search using the "right phrases"
   * use the stack trace
   * read error messages
+  * read error messages, pay attention to these
   * adding "ruby"
 * Stack Overflow
 * Ruby docs
@@ -41,4 +42,14 @@
 ### Asking for help
 * treat LS TA's like co-workers
 * push everything to Github
-* forums, make use of frequently 
+* forums, make use of frequently
+  * Tell of everything that you tried
+* push everything to Github
+* forums, make use of frequently
+  * Tell of everything that you tried
+
+------
+
+### LS is training me for Application Development
+* There are lots of different types of programming
+* Ruby syntax is good for all kinds of programming
