@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Notes for Ruby
 Thanks to "Ruby the Hard Way"
 
