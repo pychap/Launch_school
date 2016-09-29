@@ -1,8 +1,6 @@
 ## Notes for Ruby
-Thanks to "Ruby the Hard Way"
-
+Thanks to "Ruby the Hard Way" & Launch School
 =======
-## Notes for Ruby (part credit: Ruby Hard Way)
 The trick to remembering all the syntax rules in Ruby is to not remember them -- you need to be able to refresh your memory by experimenting with code.
 ## Parentheses
 In Ruby, when you invoke a method, the parentheses are optional. This often makes it difficult to differentiate between method invocations and local variables. For example, if you type puts -- is that a method invocation, or a local variable? If you know that there's a method called puts, then you know it's a method call. But if you didn't, then it's uncertain. To be more clear while you're still getting adjusted to reading Ruby, in this lesson we're going to always use parentheses when invoking a method. Example: we will use `gets().chomp()` instead of `gets.chomp`.
