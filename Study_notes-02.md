@@ -8,3 +8,9 @@
 | IF / ELSE IF / ELSE | show conditional branches in logic |
 | WHILE | show looping logic |
 | END   | end of program |
+
+### Rubocop
+ * C stands for Convention, which means a convention was broken.
+ * W (warning)
+ * E (error)
+ * F (fatal error)
