@@ -1,6 +1,6 @@
 | keyword      | meaning              |
-| ------------ |:--------------------:|
-| START        | Start of the program |
+| :------------ |:--------------------|
+| START        | start of the program |
 | SET          | sets a variable we can use for later |
 | GET          | retrieve input from user |
 | PRINT        | displays output to user |
