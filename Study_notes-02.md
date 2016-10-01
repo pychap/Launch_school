@@ -14,3 +14,10 @@
  * W (warning)
  * E (error)
  * F (fatal error)
+
+------
+`<<-` Allows multiline strings, must be appended and prepended by uppercase word of your choice  
+`foo = <<-MSG`  
+ `1) Choice one`  
+ `2) Message two`  
+ `MSG`
