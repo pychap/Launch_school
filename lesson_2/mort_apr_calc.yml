@@ -1,0 +1,5 @@
+welcome: "Welcome to the Mortgage\/Auto loan calculator! Enter your name:"
+valid_name: "Make sure to end a valid name."
+name_welcome: "Welcome #{name}!"
+loan_amount: "What's the loan amount?"
+apr: "Whats the APR?"
