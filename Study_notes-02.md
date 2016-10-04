@@ -24,5 +24,10 @@
  `1) Choice one`  
  `2) Message two`  
  `MSG`
+
 -------
 Ruby is an object oriented language. Everything is an object, which means that everything has an associated class, and that class in turn has a superclass, or parent. Every class that inherits from a superclass also inherits all of its methods.
+
+### Exercises to re-visit
+-----
+[Print until](https://launchschool.com/exercises/edca07c2)

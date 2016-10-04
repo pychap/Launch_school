@@ -44,10 +44,6 @@
 * push everything to Github
 * forums, make use of frequently
   * Tell of everything that you tried
-* push everything to Github
-* forums, make use of frequently
-  * Tell of everything that you tried
-
 ------
 
 ### LS is training me for Application Development

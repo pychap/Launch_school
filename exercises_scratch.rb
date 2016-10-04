@@ -1,8 +1,7 @@
-say_hello = true
+numbers = [7, 9, 13, 25, 18]
 
-while say_hello
-  5.times do
-  puts 'Hello!'
-end
-  say_hello = false
+count = 0
+until count == numbers.size
+   puts numbers[count]
+   count += 1
 end
