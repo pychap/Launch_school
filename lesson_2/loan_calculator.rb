@@ -86,6 +86,8 @@ loop do
   m = p * (j / (1 - (1 + j)**-n))
   prompt("#{name} your monthly payment will be #{m}, at #{j}% interest per month.")
 
+  # see if user wants another calculation...
+
   prompt(MESSAGES['another'])
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
