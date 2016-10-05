@@ -1,5 +1,5 @@
 require 'yaml'
-MESSAGES = YAML.load_file('mort_apr_calc.rb')
+MESSAGES = YAML.load_file('mort_apr_calc.yml')
 # greet
 # ask for loan amount, APR, loan duration in months
 # process the information
@@ -27,4 +27,71 @@ def number?(input)
   integer?(input) || float?(input)
 end
 
-prompt[MESSAGES("Welcome")]
+prompt(MESSAGES['welcome'])
+
+name = ''
+loop do
+  name = Kernel.gets().chomp()
+  if name.empty?
+    prompt(MESSAGES['valid_name'])
+  else
+    break
+  end
+end
+
+prompt("Welcome #{name}!")
+
+# main loop
+loop do
+  # get the loan amount = p
+  p = ''
+  loop do
+    prompt(MESSAGES['loan_amt'])
+    p = Kernel.gets().chomp()
+    if number?(p)
+      break
+    else
+      prompt(MESSAGES['not_a_num'])
+    end
+  end
+  # what's the APR?
+  loop do
+    apr = ''
+    prompt(MESSAGES['what_apr'])
+    apr = Kernel.gets().chomp()
+    if number?(apr)
+      # convert APR to float and round to 2
+      # decimal points to get mo interest rate - j
+      j = ''
+      j = (apr.to_f / 12).round(2)
+      puts "Your annual interest rate is #{j}"
+      break
+    else
+      prompt(MESSAGES['not_a_num'])
+    end
+  end
+  # loan duration in years, converted to months
+  loop do
+    prompt(MESSAGES['loan_duration'])
+    yr_amount = Kernel.gets().chomp()
+    if number?(yr_amount)
+      n = yr_amount.to_i * 12
+      puts "There are #{n} months in #{yr_amount} year(s)"
+      break
+    else
+      prompt(MESSAGES['not_a_num'])
+    end
+  end
+  # the calculation:
+  m = ""
+  m = p * (j / (1 - (1 + j)**-n))
+  prompt("#{name} your monthly payment will be #{m}, at #{j}% interest per month.")
+
+  # see if user wants another calculation...
+
+  prompt(MESSAGES['another'])
+  answer = Kernel.gets().chomp()
+  break unless answer.downcase().start_with?('y')
+end
+prompt("Thank you for using the Mortgage-Loan calculator!")
+prompt("Good bye.")
