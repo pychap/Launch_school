@@ -56,18 +56,19 @@ loop do
   end
   # what's the APR?
   loop do
-  apr = ''
-  prompt(MESSAGES['what_apr'])
-  apr = Kernel.gets().chomp()
-  if number?(apr)
-    # convert APR to float and round to 2 decimal points to get mo interest rate - j
-    j = ''
-    j = (apr.to_f / 12).round(2)
-    puts "Your annual interest rate is #{j}"
-    break
-  else
-    prompt(MESSAGES['not_a_num'])
-  end
+    apr = ''
+    prompt(MESSAGES['what_apr'])
+    apr = Kernel.gets().chomp()
+    if number?(apr)
+      # convert APR to float and round to 2
+      # decimal points to get mo interest rate - j
+      j = ''
+      j = (apr.to_f / 12).round(2)
+      puts "Your annual interest rate is #{j}"
+      break
+    else
+      prompt(MESSAGES['not_a_num'])
+    end
   end
   # loan duration in years, converted to months
   loop do
