@@ -30,4 +30,7 @@ Ruby is an object oriented language. Everything is an object, which means that e
 
 ### Exercises to re-visit
 -----
-[Print until](https://launchschool.com/exercises/edca07c2)
+| Section    | exercise |
+| :---------- | :-------- |
+| Loops        |[Print until](https://launchschool.com/exercises/edca07c2) |
+| Loops        | [Catch the number](https://launchschool.com/exercises/f1616791) |
