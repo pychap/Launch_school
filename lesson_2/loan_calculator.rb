@@ -56,13 +56,11 @@ loop do
   end
   # what's the APR?
   loop do
-    apr = ''
     prompt(MESSAGES['what_apr'])
     apr = Kernel.gets().chomp()
     if number?(apr)
       # convert APR to float and round to 2
       # decimal points to get mo interest rate - j
-      j = ''
       j = (apr.to_f / 12).round(2)
       puts "Your annual interest rate is #{j}"
       break
@@ -83,9 +81,8 @@ loop do
     end
   end
   # the calculation:
-  m = ""
   m = p * (j / (1 - (1 + j)**-n))
-  prompt("#{name} your monthly payment will be #{m}, at #{j}% interest per month.")
+  prompt("#{name} your monthly payment will be #{m}")
 
   # see if user wants another calculation...
 
