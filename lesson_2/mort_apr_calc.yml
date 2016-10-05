@@ -6,4 +6,5 @@ not_a_num: "Hmmm, that doesn't look like a valid number, please check and re-ent
 what_apr: "What is the APR?"
 loan_duration: "How many years to pay off?"
 another: "Another calculation? Y to calculate again."
+
 end_loop: "end of loop"
