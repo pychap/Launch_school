@@ -1,12 +1,5 @@
-numbers = []
-
-loop do
-  puts 'Enter any number:'
-  input = gets.chomp.to_i
-  numbers << input
-  if numbers.size == 5
-    # return numbers (wrong!!!)
-    break
-  end
+x = 0
+3.times do
+  x += 1
 end
-puts numbers
+puts x
