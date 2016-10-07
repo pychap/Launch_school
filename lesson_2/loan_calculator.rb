@@ -72,6 +72,7 @@ loop do
     prompt(MESSAGES['what_apr'])
     apr = Kernel.gets().chomp()
     if number?(apr)
+      # call the method from line 30
       calc_it(apr)
       break
     else
