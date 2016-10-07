@@ -72,14 +72,11 @@ loop do
     prompt(MESSAGES['what_apr'])
     apr = Kernel.gets().chomp()
     if number?(apr)
-<<<<<<< HEAD
       calc_it(apr)
-=======
       # convert APR to float and round to 2
       # decimal points to get mo interest rate - j
       j = (apr.to_f / 12).round(2)
       puts "Your annual interest rate is #{j}"
->>>>>>> 6c9e2be4880229ce129375f493db5c45b336c922
       break
     else
       prompt(MESSAGES['not_a_num'])
@@ -98,15 +95,10 @@ loop do
     end
   end
   # the calculation:
-<<<<<<< HEAD
   puts "Interest rate is #{interest_rate}"
   # call mortgage calculation method here
   mo_paymt_calc(loan_months)
   prompt("#{name} your monthly payment will be #{monthly_payment}, at #{interest_rate}% interest per month.")
-=======
-  m = p * (j / (1 - (1 + j)**-n))
-  prompt("#{name} your monthly payment will be #{m}")
->>>>>>> 6c9e2be4880229ce129375f493db5c45b336c922
 
   # see if user wants another calculation...
 
