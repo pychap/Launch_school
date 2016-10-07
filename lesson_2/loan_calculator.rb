@@ -83,6 +83,7 @@ loop do
     prompt(MESSAGES['loan_duration'])
     yr_amount = Kernel.gets().chomp()
     if number?(yr_amount)
+      # call the method from line 34
       loan_months(yr_amount)
       break
     else
@@ -91,7 +92,7 @@ loop do
   end
 
   # call mortgage calculation method here
-  loan_months = tot_loan_mos
+  loan_months = tot_loan_mos.to_i
   rate = mo_paymt_calc(loan_months)
   puts rate
 
