@@ -36,3 +36,4 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Loops        | [Catch the number](https://launchschool.com/exercises/f1616791) |  |
 | Loops        | [Empty the array](https://launchschool.com/exercises/0866fdc7) | make code efficient |
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
+| loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |

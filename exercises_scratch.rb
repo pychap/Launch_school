@@ -1,7 +1,14 @@
-number = 0
-
-until number == 10
-  number += 1
-  next if number.odd?
-  puts number
+def hello
+  "Hello"
 end
+
+def world
+  "world"
+end
+
+def greet
+ hello + " " + world
+end
+
+
+puts greet
