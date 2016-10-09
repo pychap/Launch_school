@@ -11,7 +11,17 @@
 `end`
 
 `print_me`  
-When you use `#puts` inside a method, you're outputting one thing and returning another. `#puts` outputs whatever it's given and returns `nil`. In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`
+When you use `#puts` inside a method, you're outputting one thing and returning another. `#puts` outputs whatever it's given and returns `nil`. In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`  
+
+This will `return` the string (by calling the method with `puts`).
+
+`def print_me`  
+  `"I'm printing the return value!"`  
+`end`
+
+`puts print_me`
+
+-------------------
 
 #### for psuedo code
 | keyword      | meaning              |
@@ -30,6 +40,7 @@ When you use `#puts` inside a method, you're outputting one thing and returning 
  * W (warning)
  * E (error)
  * F (fatal error)
+
 --------
 In Ruby, make sure to use `snake_case` when naming everying, except classes which are `CamelCase` or constants, which are all `UPPERCASE`.  
 
