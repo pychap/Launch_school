@@ -4,6 +4,7 @@
 > *If you use the procedure a lot [practicing], by doing many different types of problems, you will find that you understand both the why and the how behind the procedure very well indeed… Continually focusing on understanding itself actually gets in the way.* [When rigirous practice is not considered or included.]
 >
 > —Barbra Oakley, A Mind for Numbers
+
 ### Method notes
 ``def print_me``   
   `puts "I'm printing within the method!"`  
