@@ -1,14 +1,5 @@
-def hello
-  "Hello"
+def print_me
+   "I'm printing within the method!"
 end
 
-def world
-  "world"
-end
-
-def greet
- hello + " " + world
-end
-
-
-puts greet
+puts print_me

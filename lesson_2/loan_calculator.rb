@@ -28,15 +28,16 @@ def number?(input)
 end
 
 def calc_it(apr)
-  interest_rate = (apr.to_f / 12).round(2)
+  (apr.to_f / 12).round(2)
 end
 
 def loan_months(mos)
-  tot_loan_mos = mos.to_i * 12
+  # tot_loan_mos = mos.to_i * 12
+  mos = mos.to_i * 12
 end
 
 def mo_paymt_calc(tot_loan_mos)
-  monthly_payment = loan_total * (interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos))
+  loan_total * (interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos))
 end
 
 prompt(MESSAGES['welcome'])
@@ -93,7 +94,7 @@ loop do
   end
 
   # call mortgage calculation method here
-  loan_months = tot_loan_mos.to_i
+
   rate = mo_paymt_calc(loan_months)
   puts rate
 

@@ -1,7 +1,18 @@
+[Coding tips (link)](https://launchschool.com/lessons/a0f3cd44/assignments/aa99ad2d)  
+[Scope](https://launchschool.com/lessons/a0f3cd44/assignments/fff0b9db)
+
 > *If you use the procedure a lot [practicing], by doing many different types of problems, you will find that you understand both the why and the how behind the procedure very well indeed… Continually focusing on understanding itself actually gets in the way.* [When rigirous practice is not considered or included.]
 >
 > —Barbra Oakley, A Mind for Numbers
+### Method notes
+``def print_me``   
+  `puts "I'm printing within the method!"`  
+`end`
 
+`print_me`  
+When you use `#puts` inside a method, you're outputting one thing and returning another. `#puts` outputs whatever it's given and returns `nil`. In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`
+
+#### for psuedo code
 | keyword      | meaning              |
 | :------------ |:--------------------|
 | START        | start of the program |
@@ -18,7 +29,10 @@
  * W (warning)
  * E (error)
  * F (fatal error)
-------
+--------
+In Ruby, make sure to use `snake_case` when naming everying, except classes which are `CamelCase` or constants, which are all `UPPERCASE`.  
+
+-----------
 `<<-` Allows multiline strings, must be appended and prepended by uppercase word of your choice  
 `foo = <<-MSG`  
  `1) Choice one`  
@@ -37,3 +51,5 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Loops        | [Empty the array](https://launchschool.com/exercises/0866fdc7) | make code efficient |
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
+| methods | [Name not found](https://launchschool.com/exercises/d462c857) | defalut parameter |
+| methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
