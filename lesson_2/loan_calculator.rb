@@ -27,6 +27,19 @@ def number?(input)
   integer?(input) || float?(input)
 end
 
+def calc_it(apr)
+  (apr.to_f / 12).round(2)
+end
+
+def loan_months(mos)
+  # tot_loan_mos = mos.to_i * 12
+  mos = mos.to_i * 12
+end
+
+def mo_paymt_calc(tot_loan_mos)
+  loan_total * (interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos))
+end
+
 prompt(MESSAGES['welcome'])
 
 name = ''
@@ -43,26 +56,25 @@ prompt("Welcome #{name}!")
 
 # main loop
 loop do
-  # get the loan amount = p
-  p = ''
+  # get the loan amount = loan_total
+  loan_total = ''
   loop do
     prompt(MESSAGES['loan_amt'])
-    p = Kernel.gets().chomp()
-    if number?(p)
+    loan_total = Kernel.gets().chomp()
+    if number?(loan_total)
       break
     else
       prompt(MESSAGES['not_a_num'])
     end
   end
+
   # what's the APR?
   loop do
     prompt(MESSAGES['what_apr'])
     apr = Kernel.gets().chomp()
     if number?(apr)
-      # convert APR to float and round to 2
-      # decimal points to get mo interest rate - j
-      j = (apr.to_f / 12).round(2)
-      puts "Your annual interest rate is #{j}"
+      # call the method from line 30
+      calc_it(apr)
       break
     else
       prompt(MESSAGES['not_a_num'])
@@ -73,16 +85,18 @@ loop do
     prompt(MESSAGES['loan_duration'])
     yr_amount = Kernel.gets().chomp()
     if number?(yr_amount)
-      n = yr_amount.to_i * 12
-      puts "There are #{n} months in #{yr_amount} year(s)"
+      # call the method from line 34
+      loan_months(yr_amount)
       break
     else
       prompt(MESSAGES['not_a_num'])
     end
   end
-  # the calculation:
-  m = p * (j / (1 - (1 + j)**-n))
-  prompt("#{name} your monthly payment will be #{m}")
+
+  # call mortgage calculation method here
+
+  rate = mo_paymt_calc(loan_months)
+  puts rate
 
   # see if user wants another calculation...
 
