@@ -31,11 +31,12 @@ def calc_it(apr)
   (apr.to_f / 12).round(2)
 end
 
-def loan_months(mos)
-  # tot_loan_mos = mos.to_i * 12
-  mos = mos.to_i * 12
+def loan_months(yrs)
+  # convert years to months
+  yrs.to_i * 12
 end
 
+loan_total = nil
 def mo_paymt_calc(tot_loan_mos)
   loan_total * (interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos))
 end
@@ -57,7 +58,6 @@ prompt("Welcome #{name}!")
 # main loop
 loop do
   # get the loan amount = loan_total
-  loan_total = ''
   loop do
     prompt(MESSAGES['loan_amt'])
     loan_total = Kernel.gets().chomp()
@@ -86,7 +86,10 @@ loop do
     yr_amount = Kernel.gets().chomp()
     if number?(yr_amount)
       # call the method from line 34
-      loan_months(yr_amount)
+      tot_months = loan_months(yr_amount)
+      prompt(MESSAGES['made_it'])
+      rate = mo_paymt_calc(tot_months)
+      puts rate
       break
     else
       prompt(MESSAGES['not_a_num'])
@@ -94,9 +97,6 @@ loop do
   end
 
   # call mortgage calculation method here
-
-  rate = mo_paymt_calc(loan_months)
-  puts rate
 
   # see if user wants another calculation...
 

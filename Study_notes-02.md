@@ -1,5 +1,7 @@
-[Coding tips (link)](https://launchschool.com/lessons/a0f3cd44/assignments/aa99ad2d)  
-[Scope](https://launchschool.com/lessons/a0f3cd44/assignments/fff0b9db)
+### Very helpful links:
+[Coding tips](https://launchschool.com/lessons/a0f3cd44/assignments/aa99ad2d)  
+[Scope](https://launchschool.com/lessons/a0f3cd44/assignments/fff0b9db)  
+[Variables as pointers](https://launchschool.com/books/ruby/read/more_stuff#variables_as_pointers)
 
 > *If you use the procedure a lot [practicing], by doing many different types of problems, you will find that you understand both the why and the how behind the procedure very well indeed… Continually focusing on understanding itself actually gets in the way.* [When rigirous practice is not considered or included.]
 >
@@ -11,7 +13,10 @@
 `end`
 
 `print_me`  
-When you use `#puts` inside a method, you're outputting one thing and returning another. `#puts` outputs whatever it's given and returns `nil`. In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`  
+* When you use `#puts` inside a method, you're outputting one thing and returning another.  
+* `#puts` outputs whatever it's given and returns `nil`.
+
+In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`  
 
 This will `return` the string (by calling the method with `puts`).
 
@@ -20,6 +25,13 @@ This will `return` the string (by calling the method with `puts`).
 `end`
 
 `puts print_me`
+
+* Ruby methods ALWAYS return the evaluated result of the last line of the expression unless an explicit return comes before it.  
+* If you wanted to explicitly return a value you can use the `return` keyword.
+
+------
+###### pass by vs reference values
+when an operation within the method mutates the caller, it will affect the original object
 
 -------------------
 
@@ -63,5 +75,6 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Loops        | [Empty the array](https://launchschool.com/exercises/0866fdc7) | make code efficient |
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
+| loops  | [Greeting](https://launchschool.com/exercises/aae4a14e) | while loop |
 | methods | [Name not found](https://launchschool.com/exercises/d462c857) | defalut parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
