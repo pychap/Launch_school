@@ -1,13 +1,29 @@
-loop do
-  puts "How many output lines do you want? Enter a number >= 3:"
-  answer = gets.chomp
-  if answer.to_i < 3
-    puts "That's not enough lines."
-  else
-    answer = answer.to_i
-    answer.times do
-      puts "Launch School is the best!"
-    end
-    break
-  end
+def valid_number?(number_string)
+  number_string.to_i.to_s == number_string
 end
+
+numerator = nil
+loop do
+  puts ">> Please enter the numerator:"
+  numerator = Kernel.gets().chomp()
+  numerator.to_i
+
+  break if valid_number?(numerator)
+  puts ">> Invalid input. Only integers are allowed."
+end
+
+denominator = nil
+loop do
+  puts ">> Please enter the denominator:"
+  denominator = Kernel.gets().chomp()
+  # denominator = denominator.to_i
+  if denominator == '0'
+    puts ">> Invalid input. A denominator of 0 is not allowed."
+  else
+    break if valid_number?(denominator)
+    puts "Invalid input. Only integers are allowed."
+  end
+  puts "got this far"
+end
+
+puts "Boom! done."
