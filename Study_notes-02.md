@@ -75,5 +75,6 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
 | loops  | [Greeting](https://launchschool.com/exercises/aae4a14e) | while loop |
+| user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals  |
 | methods | [Name not found](https://launchschool.com/exercises/d462c857) | defalut parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
