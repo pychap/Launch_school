@@ -3,7 +3,9 @@
 [Coding tips II - *especially good method notes*](https://launchschool.com/lessons/a0f3cd44/assignments/f612fbc5)  
 [Scope](https://launchschool.com/lessons/a0f3cd44/assignments/fff0b9db)  
 [Variables as pointers](https://launchschool.com/books/ruby/read/more_stuff#variables_as_pointers)
+
 ----------------
+
 ### Method notes
 ``def print_me``   
   `puts "I'm printing within the method!"`  
