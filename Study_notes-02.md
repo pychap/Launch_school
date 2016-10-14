@@ -53,7 +53,7 @@ when an operation within the method mutates the caller, it will affect the origi
  * F (fatal error)
 
 --------
-In Ruby, make sure to use `snake_case` when naming everying, except classes which are `CamelCase` or constants, which are all `UPPERCASE`.  
+In Ruby, make sure to use `snake_case` when naming everything, except classes which are `CamelCase` or constants, which are all `UPPERCASE`.  
 
 -----------
 `<<-` Allows multiline strings, must be appended and prepended by uppercase word of your choice  
@@ -76,5 +76,7 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
 | loops  | [Greeting](https://launchschool.com/exercises/aae4a14e) | while loop |
 | User input | [User name & password](https://launchschool.com/exercises/30d5181a) | conditional |
+| user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals |
+| user input | [LS Printer II](https://launchschool.com/exercises/e0ff894c) | decisions within loops |
 | methods | [Name not found](https://launchschool.com/exercises/d462c857) | default parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
