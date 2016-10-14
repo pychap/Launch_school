@@ -70,10 +70,11 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Section    | exercise | attention to |
 | :---------- | :-------- | :----------- |
 | Loops        |[Print until](https://launchschool.com/exercises/edca07c2) |  |
-| Loops        | [Catch the number](https://launchschool.com/exercises/f1616791) |  |
+| Loops        | [Catch the number](https://launchschool.com/exercises/f1616791) | [between?](http://ruby-doc.org/core-2.3.1/Comparable.html) comparable |
 | Loops        | [Empty the array](https://launchschool.com/exercises/0866fdc7) | make code efficient |
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
 | loops  | [Greeting](https://launchschool.com/exercises/aae4a14e) | while loop |
-| methods | [Name not found](https://launchschool.com/exercises/d462c857) | defalut parameter |
+| User input | [User name & password](https://launchschool.com/exercises/30d5181a) | conditional |
+| methods | [Name not found](https://launchschool.com/exercises/d462c857) | default parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
