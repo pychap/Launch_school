@@ -1,29 +1,24 @@
-def valid_number?(number_string)
-  number_string.to_i.to_s == number_string
-end
+number_of_lines = nil
 
-numerator = nil
 loop do
-  puts ">> Please enter the numerator:"
-  numerator = Kernel.gets().chomp()
-  numerator.to_i
+  loop do
+    puts '>> How many output lines do you want? Enter a number >= 3 (Q to quit):'
+    number_of_lines = gets
 
-  break if valid_number?(numerator)
-  puts ">> Invalid input. Only integers are allowed."
-end
-
-denominator = nil
-loop do
-  puts ">> Please enter the denominator:"
-  denominator = Kernel.gets().chomp()
-  # denominator = denominator.to_i
-  if denominator == '0'
-    puts ">> Invalid input. A denominator of 0 is not allowed."
-  else
-    break if valid_number?(denominator)
-    puts "Invalid input. Only integers are allowed."
+    if number_of_lines >= '3'
+      break
+    else
+      break if number_of_lines.downcase == 'y'
+      puts ">> That's not enough lines."
+    end
   end
-  puts "got this far"
-end
 
-puts "Boom! done."
+  number_of_lines = number_of_lines.to_i
+
+  while number_of_lines.to_i > 0
+    puts 'Launch School is the best!'
+    number_of_lines -= 1
+  end
+  puts "Made it here."
+
+end
