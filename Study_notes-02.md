@@ -91,3 +91,4 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
 | return | [6 - 10](https://launchschool.com/exercise_sets/d6b1fb73) | again, returns |
 | strings | [split](https://launchschool.com/exercises/97f49731) | break apart |
+| arrays | [all](https://launchschool.com/exercise_sets/43b48b60) | need to practice this section |
