@@ -26,9 +26,17 @@ This will `return` the string (by calling the method with `puts`).
 `puts print_me`
 
 * Ruby methods ALWAYS return the evaluated result of the last line of the expression unless an explicit return comes before it.  
-* If you wanted to explicitly return a value you can use the `return` keyword.
+* If you wanted to explicitly return a value you can use the `return` keyword
+* When return is executed, it immediately exits the method, returning the provided value.
+* `puts` will output the value and return `nil`
 
 ------
+
+##### Ternary general syntax:  
+`test-expression ? if-true-expression : if-false-expression`
+
+-------
+
 ###### pass by vs reference values
 when an operation within the method mutates the caller, it will affect the original object
 
@@ -36,7 +44,7 @@ when an operation within the method mutates the caller, it will affect the origi
 
 #### for psuedo code
 | keyword      | meaning              |
-| :------------ |:--------------------|
+| :----------- |:--------------------|
 | START        | start of the program |
 | SET          | sets a variable we can use for later |
 | GET          | retrieve input from user |
@@ -78,5 +86,8 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | User input | [User name & password](https://launchschool.com/exercises/30d5181a) | conditional |
 | user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals |
 | user input | [LS Printer II](https://launchschool.com/exercises/e0ff894c) | decisions within loops |
+| user input | [Opposites attract](https://launchschool.com/exercises/84929d91) | difficult 4me, efficiency in code |
 | methods | [Name not found](https://launchschool.com/exercises/d462c857) | default parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
+| return | [6 - 10](https://launchschool.com/exercise_sets/d6b1fb73) | again, returns |
+| strings | [split](https://launchschool.com/exercises/97f49731) | break apart |
