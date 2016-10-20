@@ -37,9 +37,9 @@ def loan_months(yrs)
   yrs.to_i * 12
 end
 
-def mo_paymt_calc(tot_loan_mos, interest_rate)
-  # binding.pry
-  interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos)
+def mo_paymt_calc(month_total, i_rate)
+  binding.pry
+  i_rate / (1 - (1 + i_rate)**-month_total)
 end
 
 prompt(MESSAGES['welcome'])
@@ -84,13 +84,14 @@ loop do
   puts loan_total
 
   # loan duration in years, converted to months
-  tot_months = ''
+  tot_months = 0
   loop do
-    prompt(MESSAGES['loan_duration'])
+    prompt(MESSAGES['loan_duration_yrs'])
     yr_amount = Kernel.gets().chomp()
     if number?(yr_amount)
-      # call the method from line 34
+      # call the loan_months method
       tot_months = loan_months(yr_amount)
+      break
     else
       prompt(MESSAGES['not_a_num'])
     end
