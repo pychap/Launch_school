@@ -1,3 +1,4 @@
+require 'pry'
 require 'yaml'
 MESSAGES = YAML.load_file('mort_apr_calc.yml')
 # greet
@@ -27,6 +28,7 @@ def number?(input)
   integer?(input) || float?(input)
 end
 
+interest_rate = nil
 def calc_it(apr)
   (apr.to_f / 12).round(2)
 end
@@ -36,9 +38,8 @@ def loan_months(yrs)
   yrs.to_i * 12
 end
 
-loan_total = nil
-def mo_paymt_calc(tot_loan_mos)
-  loan_total * (interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos))
+def mo_paymt_calc(tot_loan_mos, interest_rate)
+  interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos)
 end
 
 prompt(MESSAGES['welcome'])
@@ -58,14 +59,12 @@ prompt("Welcome #{name}!")
 # main loop
 loop do
   # get the loan amount = loan_total
+  loan_total = ''
   loop do
     prompt(MESSAGES['loan_amt'])
     loan_total = Kernel.gets().chomp()
-    if number?(loan_total)
-      break
-    else
-      prompt(MESSAGES['not_a_num'])
-    end
+    break if number?(loan_total)
+    prompt(MESSAGES['not_a_num'])
   end
 
   # what's the APR?
@@ -80,6 +79,9 @@ loop do
       prompt(MESSAGES['not_a_num'])
     end
   end
+  puts interest_rate
+  puts loan_total
+
   # loan duration in years, converted to months
   loop do
     prompt(MESSAGES['loan_duration'])
@@ -88,15 +90,13 @@ loop do
       # call the method from line 34
       tot_months = loan_months(yr_amount)
       prompt(MESSAGES['made_it'])
-      rate = mo_paymt_calc(tot_months)
+      rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate.to_i)
       puts rate
       break
     else
       prompt(MESSAGES['not_a_num'])
     end
   end
-
-  # call mortgage calculation method here
 
   # see if user wants another calculation...
 
