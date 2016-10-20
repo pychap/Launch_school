@@ -28,7 +28,6 @@ def number?(input)
   integer?(input) || float?(input)
 end
 
-interest_rate = nil
 def calc_it(apr)
   (apr.to_f / 12).round(2)
 end
@@ -39,6 +38,7 @@ def loan_months(yrs)
 end
 
 def mo_paymt_calc(tot_loan_mos, interest_rate)
+  # binding.pry
   interest_rate / (1 - (1 + interest_rate)**-tot_loan_mos)
 end
 
@@ -68,12 +68,13 @@ loop do
   end
 
   # what's the APR?
+  interest_rate = 0
   loop do
     prompt(MESSAGES['what_apr'])
     apr = Kernel.gets().chomp()
     if number?(apr)
-      # call the method from line 30
-      calc_it(apr)
+      # call the calc_it method
+      interest_rate = calc_it(apr)
       break
     else
       prompt(MESSAGES['not_a_num'])
@@ -83,21 +84,21 @@ loop do
   puts loan_total
 
   # loan duration in years, converted to months
+  tot_months = ''
   loop do
     prompt(MESSAGES['loan_duration'])
     yr_amount = Kernel.gets().chomp()
     if number?(yr_amount)
       # call the method from line 34
       tot_months = loan_months(yr_amount)
-      prompt(MESSAGES['made_it'])
-      rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate.to_i)
-      puts rate
-      break
     else
       prompt(MESSAGES['not_a_num'])
     end
   end
 
+  # binding.pry
+  rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate.to_i)
+  puts "Your rate is #{rate}"
   # see if user wants another calculation...
 
   prompt(MESSAGES['another'])
