@@ -38,7 +38,6 @@ def loan_months(yrs)
 end
 
 def mo_paymt_calc(month_total, i_rate)
-  binding.pry
   i_rate / (1 - (1 + i_rate)**-month_total)
 end
 
@@ -66,6 +65,7 @@ loop do
     break if number?(loan_total)
     prompt(MESSAGES['not_a_num'])
   end
+  loan_total = loan_total.to_i
 
   # what's the APR?
   interest_rate = 0
@@ -74,14 +74,13 @@ loop do
     apr = Kernel.gets().chomp()
     if number?(apr)
       # call the calc_it method
-      interest_rate = calc_it(apr)
+      apr = apr.to_i
+      interest_rate = calc_it(apr) / 10
       break
     else
       prompt(MESSAGES['not_a_num'])
     end
   end
-  puts interest_rate
-  puts loan_total
 
   # loan duration in years, converted to months
   tot_months = 0
@@ -98,8 +97,9 @@ loop do
   end
 
   # binding.pry
-  rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate.to_i)
-  puts "Your rate is #{rate}"
+  rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate)
+  rate = rate.round(2)
+  puts "#{name}, your monthly payment will be $#{rate}"
   # see if user wants another calculation...
 
   prompt(MESSAGES['another'])
