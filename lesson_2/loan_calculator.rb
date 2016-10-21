@@ -97,7 +97,7 @@ loop do
   end
 
   # binding.pry
-  rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate)
+  rate = loan_total * mo_paymt_calc(tot_months, interest_rate)
   rate = rate.round(2)
   puts "#{name}, your monthly payment will be $#{rate}"
   # see if user wants another calculation...
