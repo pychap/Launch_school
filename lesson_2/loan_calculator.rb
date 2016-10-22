@@ -28,25 +28,26 @@ def number?(input)
   integer?(input) || float?(input)
 end
 
-def calc_it(apr)
-  (apr.to_f / 12).round(2)
-end
-
 def loan_months(yrs)
   # convert years to months
   yrs.to_i * 12
 end
 
-def mo_paymt_calc(month_total, i_rate)
+def clear_screen
+  system('clear') || system('cls')
+end
+
+def calculate_monthly_payment(month_total, i_rate)
   i_rate / (1 - (1 + i_rate)**-month_total)
 end
 
+clear_screen
 prompt(MESSAGES['welcome'])
 
 name = ''
 loop do
   name = Kernel.gets().chomp()
-  if name.empty?
+  if (name.empty? || name == ' ')
     prompt(MESSAGES['valid_name'])
   else
     break
@@ -62,43 +63,50 @@ loop do
   loop do
     prompt(MESSAGES['loan_amt'])
     loan_total = Kernel.gets().chomp()
-    break if number?(loan_total)
-    prompt(MESSAGES['not_a_num'])
+    if loan_total.empty? || loan_total.to_i <= 0
+      prompt(MESSAGES['not_a_num'])
+    else
+      break
+    end
   end
   loan_total = loan_total.to_i
+  clear_screen
 
-  # what's the APR?
-  interest_rate = 0
+  # what's the interest rate?
+  monthly_interest_rate = 0
+  user_interest = 0
   loop do
-    prompt(MESSAGES['what_apr'])
-    apr = Kernel.gets().chomp()
-    if number?(apr)
-      # call the calc_it method
-      apr = apr.to_i
-      interest_rate = calc_it(apr) / 10
-      break
-    else
+    prompt(MESSAGES['what_rate'])
+    prompt(MESSAGES['example'])
+    user_interest = Kernel.gets().chomp()
+    if (user_interest.empty?() || user_interest.to_i <= 0)
       prompt(MESSAGES['not_a_num'])
+    else # call the calculate_interest method
+      user_interest = user_interest.to_f() / 100
+      # monthly_interest_rate = calculate_interest(user_interest)
+      monthly_interest_rate = user_interest / 12
+      break
     end
   end
 
   # loan duration in years, converted to months
-  tot_months = 0
+  total_months = 0
   loop do
     prompt(MESSAGES['loan_duration_yrs'])
     yr_amount = Kernel.gets().chomp()
-    if number?(yr_amount)
-      # call the loan_months method
-      tot_months = loan_months(yr_amount)
-      break
-    else
+    if (yr_amount.empty?() || yr_amount.to_i <= 0)
       prompt(MESSAGES['not_a_num'])
+    else
+      # call the loan_months method
+      total_months = loan_months(yr_amount)
+      break
     end
   end
 
   # binding.pry
-  rate = loan_total * mo_paymt_calc(tot_months, interest_rate)
+  rate = loan_total * calculate_monthly_payment(total_months, monthly_interest_rate)
   rate = rate.round(2)
+  clear_screen
   puts "#{name}, your monthly payment will be $#{rate}"
   # see if user wants another calculation...
 
@@ -106,5 +114,6 @@ loop do
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
-prompt("Thank you for using the Mortgage-Loan calculator!")
+clear_screen
+prompt("Thank you #{name} for using the Mortgage-Loan calculator!")
 prompt("Good bye.")
