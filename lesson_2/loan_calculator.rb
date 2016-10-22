@@ -1,6 +1,3 @@
-require 'pry'
-require 'yaml'
-MESSAGES = YAML.load_file('mort_apr_calc.yml')
 # greet
 # ask for loan amount, APR, loan duration in months
 # process the information
@@ -42,13 +39,13 @@ def calculate_monthly_payment(month_total, i_rate)
 end
 
 clear_screen
-prompt(MESSAGES['welcome'])
+prompt("Welcome to the Mortgage-Auto loan calculator! Enter your name:")
 
 name = ''
 loop do
   name = Kernel.gets().chomp()
-  if (name.empty? || name == ' ')
-    prompt(MESSAGES['valid_name'])
+  if name.empty? || name == ' '
+    prompt("Make sure to enter a valid name.")
   else
     break
   end
@@ -61,10 +58,10 @@ loop do
   # get the loan amount = loan_total
   loan_total = ''
   loop do
-    prompt(MESSAGES['loan_amt'])
+    prompt("What is your loan amount?")
     loan_total = Kernel.gets().chomp()
     if loan_total.empty? || loan_total.to_i <= 0
-      prompt(MESSAGES['not_a_num'])
+      prompt("Hmmm, that doesn't look like valid input, please check and re-enter.")
     else
       break
     end
@@ -76,11 +73,11 @@ loop do
   monthly_interest_rate = 0
   user_interest = 0
   loop do
-    prompt(MESSAGES['what_rate'])
-    prompt(MESSAGES['example'])
+    prompt("What is the interest rate?")
+    prompt("(Example: 4 for 4% or 3.5 for 3.5%)")
     user_interest = Kernel.gets().chomp()
-    if (user_interest.empty?() || user_interest.to_i <= 0)
-      prompt(MESSAGES['not_a_num'])
+    if user_interest.empty?() || user_interest.to_i <= 0
+      prompt("Hmmm, that doesn't look like valid input, please check and re-enter.")
     else # call the calculate_interest method
       user_interest = user_interest.to_f() / 100
       # monthly_interest_rate = calculate_interest(user_interest)
@@ -92,10 +89,10 @@ loop do
   # loan duration in years, converted to months
   total_months = 0
   loop do
-    prompt(MESSAGES['loan_duration_yrs'])
+    prompt("How many years to pay off?")
     yr_amount = Kernel.gets().chomp()
-    if (yr_amount.empty?() || yr_amount.to_i <= 0)
-      prompt(MESSAGES['not_a_num'])
+    if yr_amount.empty?() || yr_amount.to_i <= 0
+      prompt("Hmmm, that doesn't look like valid input, please check and re-enter.")
     else
       # call the loan_months method
       total_months = loan_months(yr_amount)
@@ -110,7 +107,7 @@ loop do
   puts "#{name}, your monthly payment will be $#{rate}"
   # see if user wants another calculation...
 
-  prompt(MESSAGES['another'])
+  prompt("Another calculation? Y to calculate again.")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
