@@ -1,8 +1,7 @@
 # greet
-# ask for loan amount, APR, loan duration in months
+# ask for loan amount, interest rate, loan duration in months
 # process the information
 # output mo/interest rate
-# output the length of the loan
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -61,7 +60,7 @@ loop do
     prompt("What is your loan amount?")
     loan_total = Kernel.gets().chomp()
     if loan_total.empty? || loan_total.to_i <= 0
-      prompt("Hmmm, that doesn't look like valid input, please check and re-enter.")
+      prompt("That's not valid input, please check and re-enter.")
     else
       break
     end
@@ -77,7 +76,7 @@ loop do
     prompt("(Example: 4 for 4% or 3.5 for 3.5%)")
     user_interest = Kernel.gets().chomp()
     if user_interest.empty?() || user_interest.to_i <= 0
-      prompt("Hmmm, that doesn't look like valid input, please check and re-enter.")
+      prompt("That's not valid input, please check and re-enter.")
     else # call the calculate_interest method
       user_interest = user_interest.to_f() / 100
       # monthly_interest_rate = calculate_interest(user_interest)
@@ -92,7 +91,7 @@ loop do
     prompt("How many years to pay off?")
     yr_amount = Kernel.gets().chomp()
     if yr_amount.empty?() || yr_amount.to_i <= 0
-      prompt("Hmmm, that doesn't look like valid input, please check and re-enter.")
+      prompt("That's not valid input, please check and re-enter.")
     else
       # call the loan_months method
       total_months = loan_months(yr_amount)
@@ -101,10 +100,11 @@ loop do
   end
 
   # binding.pry
-  rate = loan_total * calculate_monthly_payment(total_months, monthly_interest_rate)
-  rate = rate.round(2)
+  final_rate = loan_total *
+               calculate_monthly_payment(total_months, monthly_interest_rate)
+
   clear_screen
-  puts "#{name}, your monthly payment will be $#{rate}"
+  puts "#{name}, your monthly payment will be $#{final_rate.round(2)}"
   # see if user wants another calculation...
 
   prompt("Another calculation? Y to calculate again.")
