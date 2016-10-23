@@ -1,3 +1,4 @@
+require 'pry'
 # greet
 # ask for loan amount, interest rate, loan duration in months
 # process the information
@@ -25,8 +26,9 @@ def number?(input)
 end
 
 def loan_months(yrs)
+  # binding.pry
   # convert years to months
-  yrs.to_i * 12
+  yrs.to_f * 12
 end
 
 def clear_screen
@@ -59,13 +61,18 @@ loop do
   loop do
     prompt("What is your loan amount?")
     loan_total = Kernel.gets().chomp()
+    # see if any below dollar amounts(cents)
+    # if loan_total.to_f.positive?
+    #   puts "Please round amout up or down (no below dollar amounts)"
+    # end
     if loan_total.empty? || loan_total.to_i <= 0
-      prompt("That's not valid input, please check and re-enter.")
+      prompt("Invalid input for loan amount.")
+      prompt("Please check and re-enter.")
     else
       break
     end
   end
-  loan_total = loan_total.to_i
+  loan_total = loan_total.to_f
   clear_screen
 
   # what's the interest rate?
@@ -75,7 +82,7 @@ loop do
     prompt("What is the interest rate?")
     prompt("(Example: 4 for 4% or 3.5 for 3.5%)")
     user_interest = Kernel.gets().chomp()
-    if user_interest.empty?() || user_interest.to_i <= 0
+    if user_interest.empty?() || user_interest.to_f <= 0
       prompt("That's not valid input, please check and re-enter.")
     else # call the calculate_interest method
       user_interest = user_interest.to_f() / 100
@@ -94,7 +101,7 @@ loop do
       prompt("That's not valid input, please check and re-enter.")
     else
       # call the loan_months method
-      total_months = loan_months(yr_amount)
+      total_months = loan_months(yr_amount.to_f)
       break
     end
   end
@@ -108,6 +115,7 @@ loop do
   # see if user wants another calculation...
 
   prompt("Another calculation? Y to calculate again.")
+  prompt("Or any key to exit.")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
