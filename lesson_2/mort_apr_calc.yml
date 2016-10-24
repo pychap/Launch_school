@@ -4,7 +4,7 @@ name_welcome: "Welcome!"
 loan_amt: "What is your loan amount?"
 not_a_num: "Hmmm, that doesn't look like a valid number, please check and re-enter."
 what_apr: "What is the APR?"
-loan_duration: "How many years to pay off?"
+loan_duration_yrs: "How many years to pay off?"
 another: "Another calculation? Y to calculate again."
 made_it: "The loop made it this far."
 

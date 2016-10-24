@@ -1,9 +1,7 @@
-pets = ['cat', 'dog', 'fish', 'lizard']
-my_pets = pets[1..2]
+def valid_number?(number_string)
+  number_string.to_i.to_s == number_string && number_string.to_i != 0
+end
 
-<<<<<<< HEAD
-puts "I have a pet #{my_pets[1]} and a pet #{my_pets[0]}"
-=======
 def read_number
   loop do
     puts '>> Please enter a positive or neg number.'
@@ -26,4 +24,3 @@ end
 
 sum = first_number + second_number
 puts "#{first_number} + #{second_number} = #{sum}"
->>>>>>> 3c924978c232ff10631646ca5c219e396081d5b7
