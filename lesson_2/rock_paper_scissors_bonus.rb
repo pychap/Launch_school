@@ -1,4 +1,4 @@
-VALID_CHOICES = %w(rock(r) scissors(s) paper(p))
+VALID_CHOICES = %w(rock scissors paper lizzard spock)
 
 def prompt(message)
   Kernel.puts(">= #{message}")

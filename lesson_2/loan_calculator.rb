@@ -1,11 +1,8 @@
 require 'pry'
-require 'yaml'
-MESSAGES = YAML.load_file('mort_apr_calc.yml')
 # greet
-# ask for loan amount, APR, loan duration in months
+# ask for loan amount, interest rate, loan duration in months
 # process the information
 # output mo/interest rate
-# output the length of the loan
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -28,27 +25,28 @@ def number?(input)
   integer?(input) || float?(input)
 end
 
-def calc_it(apr)
-  (apr.to_f / 12).round(2)
-end
-
 def loan_months(yrs)
+  # binding.pry
   # convert years to months
-  yrs.to_i * 12
+  yrs.to_f * 12
 end
 
-def mo_paymt_calc(month_total, i_rate)
-  binding.pry
+def clear_screen
+  system('clear') || system('cls')
+end
+
+def calculate_monthly_payment(month_total, i_rate)
   i_rate / (1 - (1 + i_rate)**-month_total)
 end
 
-prompt(MESSAGES['welcome'])
+clear_screen
+prompt("Welcome to the Mortgage-Auto loan calculator! Enter your name:")
 
 name = ''
 loop do
   name = Kernel.gets().chomp()
-  if name.empty?
-    prompt(MESSAGES['valid_name'])
+  if name.empty? || name == ' '
+    prompt("Make sure to enter a valid name.")
   else
     break
   end
@@ -61,50 +59,66 @@ loop do
   # get the loan amount = loan_total
   loan_total = ''
   loop do
-    prompt(MESSAGES['loan_amt'])
+    prompt("What is your loan amount?")
     loan_total = Kernel.gets().chomp()
-    break if number?(loan_total)
-    prompt(MESSAGES['not_a_num'])
-  end
-
-  # what's the APR?
-  interest_rate = 0
-  loop do
-    prompt(MESSAGES['what_apr'])
-    apr = Kernel.gets().chomp()
-    if number?(apr)
-      # call the calc_it method
-      interest_rate = calc_it(apr)
-      break
+    # see if any below dollar amounts(cents)
+    # if loan_total.to_f.positive?
+    #   puts "Please round amout up or down (no below dollar amounts)"
+    # end
+    if loan_total.empty? || loan_total.to_i <= 0
+      prompt("Invalid input for loan amount.")
+      prompt("Please check and re-enter.")
     else
-      prompt(MESSAGES['not_a_num'])
+      break
     end
   end
-  puts interest_rate
-  puts loan_total
+  loan_total = loan_total.to_f
+  clear_screen
+
+  # what's the interest rate?
+  monthly_interest_rate = 0
+  user_interest = 0
+  loop do
+    prompt("What is the interest rate?")
+    prompt("(Example: 4 for 4% or 3.5 for 3.5%)")
+    user_interest = Kernel.gets().chomp()
+    if user_interest.empty?() || user_interest.to_f <= 0
+      prompt("That's not valid input, please check and re-enter.")
+    else # call the calculate_interest method
+      user_interest = user_interest.to_f() / 100
+      # monthly_interest_rate = calculate_interest(user_interest)
+      monthly_interest_rate = user_interest / 12
+      break
+    end
+  end
 
   # loan duration in years, converted to months
-  tot_months = 0
+  total_months = 0
   loop do
-    prompt(MESSAGES['loan_duration_yrs'])
+    prompt("How many years to pay off?")
     yr_amount = Kernel.gets().chomp()
-    if number?(yr_amount)
-      # call the loan_months method
-      tot_months = loan_months(yr_amount)
-      break
+    if yr_amount.empty?() || yr_amount.to_i <= 0
+      prompt("That's not valid input, please check and re-enter.")
     else
-      prompt(MESSAGES['not_a_num'])
+      # call the loan_months method
+      total_months = loan_months(yr_amount.to_f)
+      break
     end
   end
 
   # binding.pry
-  rate = loan_total * mo_paymt_calc(tot_months.to_i, interest_rate.to_i)
-  puts "Your rate is #{rate}"
+  final_rate = loan_total *
+               calculate_monthly_payment(total_months, monthly_interest_rate)
+
+  clear_screen
+  puts "#{name}, your monthly payment will be $#{final_rate.round(2)}"
   # see if user wants another calculation...
 
-  prompt(MESSAGES['another'])
+  prompt("Another calculation? Y to calculate again.")
+  prompt("Or any key to exit.")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
-prompt("Thank you for using the Mortgage-Loan calculator!")
+clear_screen
+prompt("Thank you #{name} for using the Mortgage-Loan calculator!")
 prompt("Good bye.")
