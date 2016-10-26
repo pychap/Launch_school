@@ -56,7 +56,7 @@ loop do
   loan_total = ''
   loop do
     prompt("What is your loan amount?")
-    loan_total = Kernel.gets().chomp()   
+    loan_total = Kernel.gets().chomp()
     if loan_total.empty? || loan_total.to_f <= 0
       prompt("Invalid input for loan amount.")
       prompt("Please check and re-enter.")
