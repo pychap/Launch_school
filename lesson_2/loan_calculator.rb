@@ -13,10 +13,6 @@ def valid_number?(num)
   num.to_i().nonzero?
 end
 
-def integer?(input)
-  input.to_i.to_s == input
-end
-
 def float?(input)
   input.to_f.to_s == input
 end
@@ -60,12 +56,8 @@ loop do
   loan_total = ''
   loop do
     prompt("What is your loan amount?")
-    loan_total = Kernel.gets().chomp()
-    # see if any below dollar amounts(cents)
-    # if loan_total.to_f.positive?
-    #   puts "Please round amout up or down (no below dollar amounts)"
-    # end
-    if loan_total.empty? || loan_total.to_i <= 0
+    loan_total = Kernel.gets().chomp()   
+    if loan_total.empty? || loan_total.to_f <= 0
       prompt("Invalid input for loan amount.")
       prompt("Please check and re-enter.")
     else
@@ -96,7 +88,7 @@ loop do
   loop do
     prompt("How many years to pay off?")
     yr_amount = Kernel.gets().chomp()
-    if yr_amount.empty?() || yr_amount.to_i <= 0
+    if yr_amount.empty?() || yr_amount.to_f <= 0
       prompt("That's not valid input, please check and re-enter.")
     else
       # call the loan_months method
