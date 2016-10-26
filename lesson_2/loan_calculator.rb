@@ -86,7 +86,6 @@ loop do
       prompt("That's not valid input, please check and re-enter.")
     else # call the calculate_interest method
       user_interest = user_interest.to_f() / 100
-      # monthly_interest_rate = calculate_interest(user_interest)
       monthly_interest_rate = user_interest / 12
       break
     end

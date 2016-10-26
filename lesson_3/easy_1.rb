@@ -5,8 +5,8 @@
 # 5. ? after something means is the object something like odd?
 # 6. !! before something - don't know
 
-advice = "Few things in life are as important as house training your pet dinosaur."
-puts advice.gsub!('important', 'urgent')
+# advice = "Few things in life are as important as house training your pet dinosaur."
+# puts advice.gsub!('important', 'urgent')
 
 # 4
 # numbers = [1, 2, 3, 4, 5]
@@ -20,7 +20,7 @@ puts advice.gsub!('important', 'urgent')
 #     break
 #   end
 # end
-puts (10..100).cover?(42)
+# puts (10..100).cover?(42)
 
 # 6
 # famous_words = "seven years ago..."
@@ -43,7 +43,7 @@ puts (10..100).cover?(42)
 
 # 10
 flintstones = ["Fred", "Barney", "Wilma", "Betty", "Pebbles", "BamBam"]
-flintstones_hash = Hash.new
+flintstones_hash = {}
 flintstones.each_with_index { |item, index|
   flintstones_hash[item] = index
 }
