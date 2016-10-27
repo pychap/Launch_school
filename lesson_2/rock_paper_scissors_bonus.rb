@@ -1,7 +1,24 @@
+# https://github.com/haopingfan/exercise/blob/master/101/Lesson_2/rps_bonus/revised_rock_paper_scissors_bonus.rb
+
 VALID_CHOICES = %w(rock scissors paper lizzard spock)
+
+def integer?(string)
+  /^\d+$/.match(string)
+end
 
 def prompt(message)
   Kernel.puts(">= #{message}")
+end
+
+def ask_user_name
+  user_name = ''
+  prompt "Please enter your name:"
+  loop do
+    user_name = gets.chomp
+    break if user_name =~ /^[A-Za-z]+$/
+    prompt "Please enter a valid name:"
+  end
+  user_name
 end
 
 def win?(first, second)
