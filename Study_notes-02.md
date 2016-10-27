@@ -2,7 +2,8 @@
 [Coding tips I](https://launchschool.com/lessons/a0f3cd44/assignments/aa99ad2d)  
 [Coding tips II - *especially good method notes*](https://launchschool.com/lessons/a0f3cd44/assignments/f612fbc5)  
 [Scope](https://launchschool.com/lessons/a0f3cd44/assignments/fff0b9db)  
-[Variables as pointers](https://launchschool.com/books/ruby/read/more_stuff#variables_as_pointers)
+[Variables as pointers](https://launchschool.com/books/ruby/read/more_stuff#variables_as_pointers)  
+[Numbers](http://ruby.bastardsbook.com/chapters/numbers/)
 
 ----------------
 
@@ -77,7 +78,6 @@ Ruby is an object oriented language. Everything is an object, which means that e
 -----
 | Section    | exercise | attention to |
 | :---------- | :-------- | :----------- |
-| Loops        |[Print until](https://launchschool.com/exercises/edca07c2) |  |
 | Loops        | [Catch the number](https://launchschool.com/exercises/f1616791) | [between?](http://ruby-doc.org/core-2.3.1/Comparable.html) comparable |
 | Loops        | [Empty the array](https://launchschool.com/exercises/0866fdc7) | make code efficient |
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
