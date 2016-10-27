@@ -8,9 +8,11 @@
 ----------------
 
 ### Method notes
-``def print_me``   
-  `puts "I'm printing within the method!"`  
-`end`
+```ruby  
+def print_me    
+  puts "I'm printing within the method!"  
+end
+```
 
 `print_me`  
 * When you use `#puts` inside a method, you're outputting one thing and returning another.  
@@ -19,12 +21,13 @@
 In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`  
 
 This will `return` the string (by calling the method with `puts`).
+```ruby 
+def print_me  
+  "I'm printing the return value!"  
+end  
+puts print_me  
+~~~
 
-`def print_me`  
-  `"I'm printing the return value!"`  
-`end`
-
-`puts print_me`
 
 * Ruby methods ALWAYS return the evaluated result of the last line of the expression unless an explicit return comes before it.  
 * If you wanted to explicitly return a value you can use the `return` keyword
@@ -63,6 +66,17 @@ when an operation within the method mutates the caller, it will affect the origi
 
 --------
 In Ruby, make sure to use `snake_case` when naming everything, except classes which are `CamelCase` or constants, which are all `UPPERCASE`.  
+
+-----------
+
+Test to see if value is an integer:
+```ruby
+if integer?(is_integer?) && is_integer?.to_i > 0
+  break
+else
+  prompt(...error_message...)
+end
+```
 
 -----------
 `<<-` Allows multiline strings, must be appended and prepended by uppercase word of your choice  
