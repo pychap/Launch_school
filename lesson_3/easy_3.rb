@@ -12,5 +12,8 @@ flinstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 # advice.slice("Few things in life are as important as ") #fufils bonus
 # advice.slice!("Few things in life are as important as ") #first part
 
-statement = "The Flintstones Rock!"
-statement.size('t')
+# statement = "The Flintstones Rock!"
+# puts statement.count('t')
+
+title = "Flintstone Family Members"
+puts title.center(40)
