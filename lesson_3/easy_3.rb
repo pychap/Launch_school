@@ -8,4 +8,9 @@ flinstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 # flinstones.insert(-1, "Dino", "Hoppy")
 # p flinstones
 
-advice = "Few things in life are as important as house training your pet dinosaur."
+# advice = "Few things in life are as important as house training your pet dinosaur."
+# advice.slice("Few things in life are as important as ") #fufils bonus
+# advice.slice!("Few things in life are as important as ") #first part
+
+statement = "The Flintstones Rock!"
+statement.size('t')

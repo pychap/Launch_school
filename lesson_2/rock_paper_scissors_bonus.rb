@@ -95,8 +95,9 @@ loop do
   elsif win?(computer_choice, choice)
     computer_score += 1
   end
-
+  prompt('--------------------------')
   prompt("Score: you #{player_score}, computer #{computer_score}.")
+  prompt('--------------------------')
   break if player_score == 5 || computer_score == 5
 
   prompt("Would you like to play again? (y or n)")
