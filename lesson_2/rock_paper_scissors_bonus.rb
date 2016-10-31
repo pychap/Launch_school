@@ -58,7 +58,7 @@ end
 # start of game, introduction
 clear_screen
 
-prompt("Welcome, what's your name?")
+prompt("Hi, what's your name?")
 user_name = ''
 loop do
   user_name = gets.chomp
@@ -101,6 +101,7 @@ loop do
   break if player_score == 5 || computer_score == 5
 
   prompt("Would you like to play again? (y or n)")
+  prompt("Or press any key to exit.")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
   clear_screen
