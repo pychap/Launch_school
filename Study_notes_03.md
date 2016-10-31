@@ -1,5 +1,26 @@
 # Study notes 03
 -------------  
+Simple building a hash from an array ([example from this page](https://robots.thoughtbot.com/iteration-as-an-anti-pattern#build-a-hash-from-an-array))
+```ruby
+def signer_keys_and_uids
+  result = {}
+
+  signers.each do |signer|
+    result[signer.key_id] = signer.uids
+  end
+
+  result
+end
+```  
+Or, using `#inject`
+```ruby
+def signer_keys_and_uids
+  signers.inject({}) do |result, signer|
+    result.merge(signer.key_id => signer.uids)
+  end
+end
+```
+
 Familiarize yourself with this one, creating a hash that expresses the frequency with which each letter occurs in the string; The Flintstones Rock  
 ```ruby
 statement = "The Flintstones Rock!"
