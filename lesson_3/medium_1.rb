@@ -9,8 +9,12 @@ n = 23
 # 10.times {|num| puts (" " * num) + stoneage_rock}
 
 statement = "The Flintstones Rock!"
-# break into an array %w?
-# new_statement = statement.chars
-noodle = nil
-statement.each_char{|c| c = noodle}
-puts noodle
+flintstones_hash = {}
+letters = ('A'..'Z').to_a + ('a'..'z').to_a
+letters.each do | letter |
+  letter_frequency = statement.scan(letter).count
+  flintstones_hash[letter] = letter_frequency if letter_frequency > 0
+end
+p flintstones_hash
+
+# puts "the value of 40 + 2 is " + "#{(40 + 2)}"

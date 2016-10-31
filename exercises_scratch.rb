@@ -1,17 +1,11 @@
-<<<<<<< HEAD
-def valid_number?(number_string)
-  number_string.to_i.to_s == number_string
+def factors(number)
+  dividend = number
+  divisors = []
+  begin
+    divisors << number / dividend if number % dividend == 0
+    dividend -= 1
+  end until dividend == 0
+  divisors
 end
 
-loop do |integer_one, integer_two|
-	
-end
-=======
-number = 0
-
-until number == 10
-  number += 1
-  next if number.odd?
-  puts number
-end
->>>>>>> 6e9ea2b613215157d9c05121105977c20c956648
+puts factors(540)
