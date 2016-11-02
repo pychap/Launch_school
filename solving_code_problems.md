@@ -10,42 +10,42 @@
 ------------------  
 
 ### Understand the Problem (most important)
-* there are requirements that are explicit
+* __There are requirements that are explicit__
   * take notes - refigure in your own words, perhaps outline form
   * make sure all requirements are in your refiguring 
   * the odd words problem
-* requirements are not so explicit and need to be modeled
+* __requirements are not so explicit and need to be modeled__
   * requirements are showed with examples
     * examples need to be described in computational terms
     * for instance diamond of stars
-  * implicit (implied but not plainly expressed) knowledge needs to be captured
+  * __implicit (implied but not plainly expressed) knowledge needs to be captured__
     * convert to explicit rules, in computational language
-  * identify and define important terms and concepts
+  * __identify and define important terms and concepts__
     * [queen attack (maybe easy version?)](https://launchschool.com/exercises/81d3afa6)
-* ask questions to verify my understanding!  
+* __ask questions to verify my understanding!__  
 ------------------------------------------  
 #### Examples / Test Cases  
-* Input / output
-* Test cases serve two purposes:
+* __Input / output__
+* __Test cases serve two purposes__:
   * help you understand the problem
   * allow you to verify your solution
-* Happy paths
+* __Happy paths__
   * combination of requirements; the "obvious" results
-* Edge cases
+* __Edge cases__
   * focus on input
   * emptiness (`nil/null, "", [], {}`)
   * boundary conditions 
   * repetition / duplication
   * upper case / lower case
   * data types
-* Failures / Bad Input
+* __Failures / Bad Input__
   * raise exceptions / report errors
   * return a special value (`nil/null, "", [], {}`)
 * ask questions to verify your understanding!
 
 -----------------------------  
 #### Understanding the Problem: breaking it down example
-* input:
+* __input__:
   * 1 - many words
   * separated by: 1, or many spaces
   * terminated by:
@@ -53,7 +53,7 @@
     * followed by a point
   * chars: letter, space, point, up to 20 letters
   * need to handle failure?
-* output:
+* __output__:
   * words: have the ood words reversed
   * odd means odd number words, based on 0 index
   * separated by one space between words
@@ -100,9 +100,9 @@ Understanding the problem - mental model
   * join together with `\n`, or loop and print  
 
 ----------------------------
-##### Another example
+#### Another example
 Write a function that takes an integer year as input and returns the century. The return value should be a string that begins with the century number, and ends with st, nd, rd, or th as appropriate for that number.  
-New centuries begin in years that end with 01. So, the years 1901-2000 comprise the 20th century.
+New centuries begin in years that end with 01. So, the years 1901-2000 comprise the 20th century.  
 __Understanding the problem__
 * __input__
   * integer
@@ -126,8 +126,8 @@ __Understanding the problem__
       * `century_number % 10`
       * 1, 2, 3: st, nd, rd
       * 0, 4-9: th
-      * except for 11, 12, 13 
-__Examples, / Test Cases:
+      * except for 11, 12, 13  
+__Examples, / Test Cases__:
 ```ruby
 century(1);           => '1st'
 century(100);         => '1st'
