@@ -1,12 +1,14 @@
 require 'pry'
-def factors(number)
-  dividend = number
-  divisors = []
-  while dividend > 0 
-    divisors << number / dividend if number % dividend == 0
-    dividend -= 1
-    end
-  divisors
+
+statement = "The Flintstones Rock"
+
+f_hash = {}
+letters = ('A'..'Z').to_a + ('a'..'z').to_a
+
+letters.each do |letter|
+  letter_frequency = statement.scan(letter).count
+  f_hash[letter] = letter_frequency if letter_frequency > 0
+    # binding.pry
 end
 
-puts factors(540)
+p f_hash
