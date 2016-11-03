@@ -23,6 +23,7 @@
   * __identify and define important terms and concepts__
     * [queen attack (maybe easy version?)](https://launchschool.com/exercises/81d3afa6)
 * __ask questions to verify my understanding!__  
+ 
 ------------------------------------------  
 #### Examples / Test Cases  
 * __Input / output__
