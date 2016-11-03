@@ -1,12 +1,19 @@
-require 'pry'
+# require 'pry'
 VALID_CHOICES = %w(rock scissors paper lizzard spock)
 WINNING_CONDITION = {
   'rock' => %w(scissors lizzard),
   'paper' => %w(rock spock),
   'scissors' => %w(paper lizzard),
   'spock' => %w(rock scissors),
-  'lizard' => %w(paper spock)
+  'lizzard' => %w(paper spock)
 }
+ALTERNATIVES = <<-MSG
+  Choose 'r' for Rock
+  Choose 'sc' for Scissors
+  Choose 'p' for Paper
+  Choose 'sp' for Spock
+  Choose 'l' for Lizzard
+MSG
 
 computer_score = 0
 player_score = 0
@@ -34,28 +41,17 @@ def display_results(player, computer)
   end
 end
 
-alternatives = <<-MSG
-  Choose 'r' for Rock
-  Choose 'sc' for Scissors
-  Choose 'p' for Paper
-  Choose 'sp' for Spock
-  Choose 'l' for Lizzard
-  Choose 'q' for quit
-MSG
-
-def user_choose
-  holder = Kernel.gets().chomp()
-  choice = case holder
-           when 'r' then 'rock'
-           when 'sc' then 'scissors'
-           when 'p' then 'paper'
-           when 'sp' then 'spock'
-           when 'l' then 'lizzard'
-           when 'q' then 'quit'
-           else
-             return false
-           end
-  choice
+def user_choice(option_holder)
+  case option_holder.downcase
+    # binding.pry
+  when 'r' then 'rock'
+  when 'sc' then 'scissors'
+  when 'p' then 'paper'
+  when 'sp' then 'spock'
+  when 'l' then 'lizzard'
+  else
+    return false
+  end
 end
 
 # start of game, introduction
@@ -65,49 +61,57 @@ prompt("Hi, what's your name?")
 user_name = ''
 loop do
   user_name = gets.chomp
-  break if user_name =~ /^[A-Za-z]+$/
-  prompt "Please enter a valid name:"
+  if user_name.empty? || user_name == ' '
+    # break if user_name =~ /^[A-Za-z]+$/
+    prompt "Please enter a valid name:"
+  else
+    break
+  end
 end
-
+clear_screen
 prompt("Hi #{user_name}, welcome.")
 prompt("Whoever makes it to 5 points first wins!")
 
 # main loop
 loop do
   loop do
-    prompt(alternatives)
-    choice = user_choose()
-    break if choice == 'q'
-    if choice == false
-      prompt("That's not a valid choice.")
-    else
-      break
+    loop do
+      prompt(ALTERNATIVES)
+      option_holder = Kernel.gets().chomp()
+      choice = user_choice(option_holder)
+      if choice == false
+        prompt("That's not a valid choice.")
+      else
+        break
+      end
     end
+
+    computer_choice = VALID_CHOICES.sample
+    prompt("You choose: #{choice}; Computer chose: #{computer_choice}")
+    display_results(choice, computer_choice)
+
+    # score counter
+    if win?(choice, computer_choice)
+      player_score += 1
+    elsif win?(computer_choice, choice)
+      computer_score += 1
+    end
+
+    prompt('--------------------------')
+    prompt("Score: you #{player_score}, computer #{computer_score}.")
+    prompt('--------------------------')
+    break if player_score == 3 || computer_score == 3
+    prompt("Press enter to continue.")
+    gets
+    clear_screen
   end
-  # binding.pry
-  break if choice == "quit"
-  computer_choice = VALID_CHOICES.sample
 
-  prompt("You choose: #{choice}; Computer chose: #{computer_choice}")
-
-  display_results(choice, computer_choice)
-
-  # score counter
-  if win?(choice, computer_choice)
-    player_score += 1
-  elsif win?(computer_choice, choice)
-    computer_score += 1
-  end
-  prompt('--------------------------')
-  prompt("Score: you #{player_score}, computer #{computer_score}.")
-  prompt('--------------------------')
-  break if player_score == 5 || computer_score == 5
-
-  prompt("Would you like to play again? (y or n)")
-  prompt("Or press any key to exit.")
+  # clear_screen
+  prompt("Would you like to play again? ('y' for yes or any other key if no)")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
   clear_screen
 end
 
+clear_screen
 prompt("Thank you for playing #{user_name}.")
