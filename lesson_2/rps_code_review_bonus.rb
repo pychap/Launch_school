@@ -50,7 +50,7 @@ def user_choice(option_holder)
   when 'sp' then 'spock'
   when 'l' then 'lizzard'
   else
-    return false
+    false
   end
 end
 

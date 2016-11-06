@@ -97,8 +97,7 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
 | loops  | [Greeting](https://launchschool.com/exercises/aae4a14e) | while loop |
-| User input | [User name & password](https://launchschool.com/exercises/30d5181a) | conditional |
-| user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals |
+| user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals, cled efficiency |
 | user input | [LS Printer II](https://launchschool.com/exercises/e0ff894c) | decisions within loops |
 | user input | [Opposites attract](https://launchschool.com/exercises/84929d91) | difficult 4me, efficiency in code |
 | methods | [Name not found](https://launchschool.com/exercises/d462c857) | default parameter |
