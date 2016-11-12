@@ -37,7 +37,7 @@ puts print_me
 ------
 
 ##### Ternary general syntax:  
-`test-expression ? if-true-expression : if-false-expression`
+`test-expression ? if-true-expression : if-false-expression` [from this page.](http://alvinalexander.com/blog/post/ruby/examples-ruby-ternary-operator-true-false-syntax)
 
 -------
 
@@ -100,7 +100,7 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals, cled efficiency |
 | user input | [LS Printer II](https://launchschool.com/exercises/e0ff894c) | decisions within loops |
 | user input | [Opposites attract](https://launchschool.com/exercises/84929d91) | difficult 4me, efficiency in code |
-| methods | [Name not found](https://launchschool.com/exercises/d462c857) | default parameter |
+| methods | [Name not found*](https://launchschool.com/exercises/d462c857) | default parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
 | return | [6 - 10](https://launchschool.com/exercise_sets/d6b1fb73) | again, returns |
 | strings | [split](https://launchschool.com/exercises/97f49731) | break apart |

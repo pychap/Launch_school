@@ -15,5 +15,5 @@ flinstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 # statement = "The Flintstones Rock!"
 # puts statement.count('t')
 
-title = "Flintstone Family Members"
-puts title.center(40)
+# title = "Flintstone Family Members"
+# puts title.center(40)
