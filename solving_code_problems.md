@@ -9,9 +9,9 @@
 
 ------------------  
 
-### Understand the Problem (most important)
+### Understand the Problem (most important step that's missed)
 * __There are requirements that are explicit__
-  * take notes - refigure in your own words, perhaps outline form
+  * __take notes__ - refigure in your own words, perhaps outline form
   * make sure all requirements are in your refiguring 
   * the odd words problem
 * __requirements are not so explicit and need to be modeled__
@@ -22,6 +22,7 @@
     * convert to explicit rules, in computational language
   * __identify and define important terms and concepts__
     * [queen attack (maybe easy version?)](https://launchschool.com/exercises/81d3afa6)
+    * same row; same column; esp. same diagonal
 * __ask questions to verify my understanding!__  
  
 ------------------------------------------  
@@ -42,7 +43,46 @@
 * __Failures / Bad Input__
   * raise exceptions / report errors
   * return a special value (`nil/null, "", [], {}`)
-* ask questions to verify your understanding!
+* ask questions to verify your understanding!  
+
+-----------------------------  
+#### Data Structure
+* __input data__
+* rules/requirements as data
+* string, array, hash/objects, number
+  * __string__
+    * concact, strip, reverse, etc.
+    * Regular Expression! split, replace, match…
+  * __array__
+    * need to walk through it (iteration)
+    * index
+    * abstractions!!
+      * map
+      * reduce
+      * select/filter
+      * all
+  * __hash/object__
+    * lookup table / dictionary
+    * partition data for more efficient access downstream
+    * digest
+  * __number__
+    * math operations
+    * number as string may have advantage over numbers
+  * __compound data structures__
+    * array of arrays
+    * hash with array/object values, etc
+#### Algorithm
+* Algorithms have to be described in the language of chosen data structure!
+  * "then solve it" doesn't count
+* Have to be really fluent with
+  * String / Regex
+  * Array
+    * Ruby: Enumerable
+    * Javascript: Higher Order Functions
+  * Hash / Object (Obj. if JS)
+    * Creation (default values)
+    * Access (defalut values)
+    * Iteration
 
 -----------------------------  
 #### Understanding the Problem: breaking it down example
