@@ -70,7 +70,8 @@
     * number as string may have advantage over numbers
   * __compound data structures__
     * array of arrays
-    * hash with array/object values, etc
+    * hash with array/object values, etc  
+
 #### Algorithm
 * Algorithms have to be described in the language of chosen data structure!
   * "then solve it" doesn't count
