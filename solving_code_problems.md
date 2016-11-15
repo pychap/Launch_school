@@ -75,11 +75,11 @@
 * Algorithms have to be described in the language of chosen data structure!
   * "then solve it" doesn't count
 * Have to be really fluent with
-  * String / Regex
-  * Array
-    * Ruby: Enumerable
-    * Javascript: Higher Order Functions
-  * Hash / Object (Obj. if JS)
+  * __String / Regex__
+  * __Array__
+    * __Ruby__: Enumerable
+    * __Javascript__: Higher Order Functions
+  * __Hash / Object__ (Obj. if JS)
     * Creation (default values)
     * Access (defalut values)
     * Iteration
