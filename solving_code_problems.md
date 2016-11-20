@@ -83,7 +83,30 @@
   * __Hash / Object__ (Obj. if JS)
     * Creation (default values)
     * Access (defalut values)
-    * Iteration
+    * Iteration  
+* Verify your algorithm with your examples / test cases
+
+#### Abstraction
+* Very important, rely on language built in abstactions: String.Regex. Array, Hash/Object
+* Avoid solving big problems!
+  * Always, always, break bigger problems into smaller problems
+  * Don't try to walk through a wall
+* Lay out the general steps of an algorithm, without having to go to details
+  * Try to solve a problem in 1-2 sentences
+  * If you can't, raise your abstraction
+    * create helper methods/functions
+    * push detailed steps to methods/functions
+
+-----------------------------  
+#### Interview Tips
+* Communicative
+* Getting to a working solution better than no solution
+  * in other words don't try some grand thing to impress
+* De-risking
+  * Check your building blocks
+    * run code often
+    * debug locally
+* Manage your energy
 
 -----------------------------  
 #### Understanding the Problem: breaking it down example
