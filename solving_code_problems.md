@@ -13,11 +13,9 @@
 * __There are requirements that are explicit__
   * __take notes__ - refigure in your own words, perhaps outline form
   * make sure all requirements are in your refiguring 
-  * the odd words problem
 * __requirements are not so explicit and need to be modeled__
   * requirements are showed with examples
-    * examples need to be described in computational terms
-    * for instance diamond of stars
+    * examples need to be described in computational terms  
   * __implicit (implied but not plainly expressed) knowledge needs to be captured__
     * convert to explicit rules, in computational language
   * __identify and define important terms and concepts__

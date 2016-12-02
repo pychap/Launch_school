@@ -73,3 +73,6 @@ end
 ### Comment to me from code review (on multiple `if` statements)
 Try thinking about this method in terms of data; how would you arrange a data structure (a hash or an array) that encodes those 15 conditions as something that can easily be searched to determine if you have a winning combination. This is a common pattern in almost all computing languages: __when you have a lot of conditions that need to be tested, you build a data structure that can be searched instead__. This eliminates the wall of ifs, and simplifies the operational part of your code. __Learn this pattern early, and you will have a useful skill for life.__  
 Note that the __data structure in ruby is generally defined as a constant at the top level of code,__ and the method is usually reduced to one or two lines that merely test whether there is a match in the constant structure.  
+
+### Scope
+Ruby variables and constants aren’t objects, but are references to objects. Assignment merely changes which object is bound to a particular variable.
