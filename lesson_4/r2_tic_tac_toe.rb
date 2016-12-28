@@ -89,6 +89,15 @@ def first_to_five(players_the_winner, computers_the_winner)
   end
 end
 
+# from possible solution...
+def find_at_risk_square(line, board)
+  if board.values_at(*line).count('X') == 2
+    board.select{|k,v| line.include?(k) && v == ' '}.keys.first
+  else
+    nil
+  end
+end
+
 loop do
   board = initialize_board
   loop do
@@ -107,6 +116,11 @@ loop do
   elsif detect_winner(board) == 'Computer'
     computers_the_winner += 1
   end
+
+  puts "~~~~~~~~~~~~~~~~~~~~~~"
+  puts "Player score is #{players_the_winner}"
+  puts "Computer score is #{computers_the_winner}"
+  puts "~~~~~~~~~~~~~~~~~~~~~~"
 
   break if first_to_five(players_the_winner, computers_the_winner)
 
