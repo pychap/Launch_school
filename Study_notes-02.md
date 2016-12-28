@@ -21,7 +21,7 @@ end
 In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`  
 
 This will `return` the string (by calling the method with `puts`).
-```ruby 
+```ruby
 def print_me  
   "I'm printing the return value!"  
 end  
@@ -102,6 +102,7 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | user input | [Opposites attract](https://launchschool.com/exercises/84929d91) | difficult 4me, efficiency in code |
 | methods | [Name not found*](https://launchschool.com/exercises/d462c857) | default parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
+| return | [Part 3](https://launchschool.com/exercise_sets/d6b1fb73) | return values |
 | return | [6 - 10](https://launchschool.com/exercise_sets/d6b1fb73) | again, returns |
 | strings | [split](https://launchschool.com/exercises/97f49731) | break apart |
 | arrays | [all](https://launchschool.com/exercise_sets/43b48b60) | need to practice this section |

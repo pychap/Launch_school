@@ -1,17 +1,10 @@
-require 'pry'
+require 'pry'                  # => true
+require 'seeing_is_believing'  # => true
 
-statement = "The Flintstones Rock"
-
-result = {}
-letters = ('a'..'z').to_a + ('A'..'Z').to_a
-
-statement_array = statement.split
-
-
-
-letters.each do |letter|
-  letter_amount = statement.scan(letter).count
-  result[letter] = letter_amount unless letter_amount <= 0
+def create_hash
+  new_board = {}
+  (1..9).each {|val| new_board[val] = ' '}
+    new_board
 end
 
-p result
+p create_hash
