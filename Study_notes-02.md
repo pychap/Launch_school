@@ -34,6 +34,21 @@ puts print_me
 * When return is executed, it immediately exits the method, returning the provided value.
 * `puts` will output the value and return `nil`
 
+Below repeated [from Chian Ye Lee's blog here](http://1chianyee.blogspot.my/search/label/course%20101)  
+1.  It should not both return a value or perform some side-effect. It should only do one.  
+Eg:  
+Your method should not do this  
+```ruby
+def do_multiple(array)
+     array << "another_element"
+end
+~~~  
+This method returns a modified array, at the same time, mutates the original array.  
+2.  It should do one thing at a time  
+3.  If it mutates a value, use bash; "!"  
+4.  If it prints something, use keywords like "say_xxx" or "print_xxx"  
+5.  A good program is built with many small methods.
+
 ------
 
 ##### Ternary general syntax:  

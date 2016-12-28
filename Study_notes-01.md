@@ -26,7 +26,8 @@ end`
 * `<=` (less than equal)
 * `true`
 * `false`
-* [`between?`](http://ruby-doc.org/core-2.3.1/Comparable.html) takes 2 arg's: `(a1, a2)`
+* [`between?`](http://ruby-doc.org/core-2.3.1/Comparable.html) takes 2 arg's: `(a1, a2)`  
+
 ---
 #### The Truth Tables
 <table>

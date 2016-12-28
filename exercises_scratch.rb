@@ -1,14 +1,11 @@
 require 'pry'
 
-statement = "The Flintstones Rock"
+say_hello = true
+	counter = 0
 
-f_hash = {}
-letters = ('A'..'Z').to_a + ('a'..'z').to_a
+while say_hello
 
-letters.each do |letter|
-  letter_frequency = statement.scan(letter).count
-  f_hash[letter] = letter_frequency if letter_frequency > 0
-    # binding.pry
+    puts 'Hello!'
+    counter += 1
+  say_hello = false if counter == 5
 end
-
-p f_hash
