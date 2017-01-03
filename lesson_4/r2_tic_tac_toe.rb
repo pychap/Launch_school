@@ -8,7 +8,7 @@ WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + #row
                 [[1, 5, 9], [3, 5, 7]] # diagonals
 
 def prompt(msg)
-  puts "››= #{msg}"
+  puts "››››› #{msg}"
 end
 
 def display_board(brd)
@@ -52,7 +52,27 @@ def player_places_piece!(brd)
 end
 
 def computer_places_piece!(brd)
-  square = empty_squares(brd).sample
+  square = nil
+
+  # offense
+  if !square
+    WINNING_LINES.each do |line|
+      square = find_at_risk_square(line, brd, PLAYER_MARKER)
+      break if square
+    end
+
+  # defense
+    WINNING_LINES.each do |line|
+      square = find_at_risk_square(line, brd, PLAYER_MARKER)
+      break if square
+    end
+    square = 5 if brd[5] == INITIAL_MARKER && !square
+  end
+
+  # just pick a square
+  if !square
+    square = empty_squares(brd).sample
+  end
   brd[square] = COMPUTER_MARKER
 end
 
@@ -90,9 +110,11 @@ def first_to_five(players_the_winner, computers_the_winner)
 end
 
 # from possible solution...
-def find_at_risk_square(line, board)
-  if board.values_at(*line).count('X') == 2
-    board.select{|k,v| line.include?(k) && v == ' '}.keys.first
+def find_at_risk_square(line, board, marker)
+  if board.values_at(*line).count(marker) == 2
+    # the line below tests for truthyness
+    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
+    # binding.pry
   else
     nil
   end
