@@ -21,7 +21,7 @@ end
 In this case, we're printing the value inside the method, which means the method's return value is `nil`. Try in `irb`  
 
 This will `return` the string (by calling the method with `puts`).
-```ruby 
+```ruby
 def print_me  
   "I'm printing the return value!"  
 end  
@@ -52,7 +52,7 @@ This method returns a modified array, at the same time, mutates the original arr
 ------
 
 ##### Ternary general syntax:  
-`test-expression ? if-true-expression : if-false-expression`
+`test-expression ? if-true-expression : if-false-expression` [from this page.](http://alvinalexander.com/blog/post/ruby/examples-ruby-ternary-operator-true-false-syntax)
 
 -------
 
@@ -112,12 +112,13 @@ Ruby is an object oriented language. Everything is an object, which means that e
 | Loops  | [Only even](https://launchschool.com/exercises/1f4b0bec) | use of next |
 | loops  | [First to five](https://launchschool.com/exercises/41f4b2a2) | tricky |
 | loops  | [Greeting](https://launchschool.com/exercises/aae4a14e) | while loop |
-| User input | [User name & password](https://launchschool.com/exercises/30d5181a) | conditional |
-| user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals |
+| user input | [Dividing Numbers](https://launchschool.com/exercises/e740a355) | loop behavior/conditionals, cled efficiency |
 | user input | [LS Printer II](https://launchschool.com/exercises/e0ff894c) | decisions within loops |
 | user input | [Opposites attract](https://launchschool.com/exercises/84929d91) | difficult 4me, efficiency in code |
-| methods | [Name not found](https://launchschool.com/exercises/d462c857) | default parameter |
+| methods | [Name not found*](https://launchschool.com/exercises/d462c857) | default parameter |
 | methods | [Print me II](https://launchschool.com/exercises/15ab0113) | on return values |
+| return | [Part 3](https://launchschool.com/exercise_sets/d6b1fb73) | return values |
 | return | [6 - 10](https://launchschool.com/exercise_sets/d6b1fb73) | again, returns |
 | strings | [split](https://launchschool.com/exercises/97f49731) | break apart |
 | arrays | [all](https://launchschool.com/exercise_sets/43b48b60) | need to practice this section |
+| hashes | [all](https://launchschool.com/exercise_sets/71b9ad5d) | also need to practice this section |

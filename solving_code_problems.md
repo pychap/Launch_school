@@ -9,20 +9,20 @@
 
 ------------------  
 
-### Understand the Problem (most important)
+### Understand the Problem (most important step that's missed)
 * __There are requirements that are explicit__
-  * take notes - refigure in your own words, perhaps outline form
+  * __take notes__ - refigure in your own words, perhaps outline form
   * make sure all requirements are in your refiguring 
-  * the odd words problem
 * __requirements are not so explicit and need to be modeled__
   * requirements are showed with examples
-    * examples need to be described in computational terms
-    * for instance diamond of stars
+    * examples need to be described in computational terms  
   * __implicit (implied but not plainly expressed) knowledge needs to be captured__
     * convert to explicit rules, in computational language
   * __identify and define important terms and concepts__
     * [queen attack (maybe easy version?)](https://launchschool.com/exercises/81d3afa6)
+    * same row; same column; esp. same diagonal
 * __ask questions to verify my understanding!__  
+ 
 ------------------------------------------  
 #### Examples / Test Cases  
 * __Input / output__
@@ -41,7 +41,70 @@
 * __Failures / Bad Input__
   * raise exceptions / report errors
   * return a special value (`nil/null, "", [], {}`)
-* ask questions to verify your understanding!
+* ask questions to verify your understanding!  
+
+-----------------------------  
+#### Data Structure
+* __input data__
+* rules/requirements as data
+* string, array, hash/objects, number
+  * __string__
+    * concact, strip, reverse, etc.
+    * Regular Expression! split, replace, match…
+  * __array__
+    * need to walk through it (iteration)
+    * index
+    * abstractions!!
+      * map
+      * reduce
+      * select/filter
+      * all
+  * __hash/object__
+    * lookup table / dictionary
+    * partition data for more efficient access downstream
+    * digest
+  * __number__
+    * math operations
+    * number as string may have advantage over numbers
+  * __compound data structures__
+    * array of arrays
+    * hash with array/object values, etc  
+
+#### Algorithm
+* Algorithms have to be described in the language of chosen data structure!
+  * "then solve it" doesn't count
+* Have to be really fluent with
+  * __String / Regex__
+  * __Array__
+    * __Ruby__: Enumerable
+    * __Javascript__: Higher Order Functions
+  * __Hash / Object__ (Obj. if JS)
+    * Creation (default values)
+    * Access (defalut values)
+    * Iteration  
+* Verify your algorithm with your examples / test cases
+
+#### Abstraction
+* Very important, rely on language built in abstactions: String.Regex. Array, Hash/Object
+* Avoid solving big problems!
+  * Always, always, break bigger problems into smaller problems
+  * Don't try to walk through a wall
+* Lay out the general steps of an algorithm, without having to go to details
+  * Try to solve a problem in 1-2 sentences
+  * If you can't, raise your abstraction
+    * create helper methods/functions
+    * push detailed steps to methods/functions
+
+-----------------------------  
+#### Interview Tips
+* Communicative
+* Getting to a working solution better than no solution
+  * in other words don't try some grand thing to impress
+* De-risking
+  * Check your building blocks
+    * run code often
+    * debug locally
+* Manage your energy
 
 -----------------------------  
 #### Understanding the Problem: breaking it down example

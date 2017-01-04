@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'pry'
 
 
@@ -38,3 +39,7 @@ def uuid_generator
 end
 
 puts uuid_generator
+=======
+a = [5, 9, 3, 11]
+puts a.min(2)
+>>>>>>> b865ca0fbf4127e625ef06bf0c70f8349a65624b
