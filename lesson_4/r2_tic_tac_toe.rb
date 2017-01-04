@@ -1,16 +1,18 @@
 require 'pry'
 
-INITIAL_MARKER = ' '
-PLAYER_MARKER = 'X'
-COMPUTER_MARKER = 'O'
-WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + #row
+INITIAL_MARKER = ' '.freeze
+PLAYER_MARKER = 'X'.freeze
+COMPUTER_MARKER = 'O'.freeze
+WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # row
                 [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # columns
                 [[1, 5, 9], [3, 5, 7]] # diagonals
+PLAYS_FIRST = 'choose'.freeze
 
 def prompt(msg)
   puts "››››› #{msg}"
 end
 
+# rubocop:disable Metrics/MethodLength, Metrics/AbcSize
 def display_board(brd)
   system 'clear'
   puts "You are #{PLAYER_MARKER}, Computer is #{COMPUTER_MARKER}."
@@ -28,22 +30,34 @@ def display_board(brd)
   puts "     |     |"
   puts ""
 end
+# rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
 def initialize_board
   new_board = {}
-  (1..9).each {|num| new_board[num] = INITIAL_MARKER}
+  (1..9).each { |num| new_board[num] = INITIAL_MARKER }
   new_board
 end
 
 def empty_squares(brd)
   # returns true or false
-  brd.keys.select {|num| brd[num] == INITIAL_MARKER}
+  brd.keys.select { |num| brd[num] == INITIAL_MARKER }
+end
+
+def joinor(arr, delimiter=', ', word='or')
+  case arr.size
+  when 0 then ''
+  when 1 then arr.first
+  when 2 then arr.join(" #{word} ")
+  else
+    arr[-1] = "#{word} #{arr.last}"
+    arr.join(delimiter)
+  end
 end
 
 def player_places_piece!(brd)
   square = ''
   loop do
-    prompt "Choose a square, (#{empty_squares(brd).join(', ')}):"
+    prompt "Choose a square, (#{joinor(empty_squares(brd))}):"
     square = gets.chomp.to_i
     break if empty_squares(brd).include?(square)
     prompt "Sorry, that's not a valid choice."
@@ -61,7 +75,7 @@ def computer_places_piece!(brd)
       break if square
     end
 
-  # defense
+    # defense
     WINNING_LINES.each do |line|
       square = find_at_risk_square(line, brd, PLAYER_MARKER)
       break if square
@@ -96,9 +110,6 @@ def detect_winner(brd)
   nil
 end
 
-players_the_winner = 0
-computers_the_winner = 0
-
 def first_to_five(players_the_winner, computers_the_winner)
   if players_the_winner == 5
     prompt "Player has won 5 games, congratulations!"
@@ -113,10 +124,37 @@ end
 def find_at_risk_square(line, board, marker)
   if board.values_at(*line).count(marker) == 2
     # the line below tests for truthyness
-    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
+    board.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
     # binding.pry
   else
     nil
+  end
+end
+
+def choose_player(start_choice)
+   loop do
+     prompt "Would you like to start, or would you prefer the computer start?"
+     prompt "P for you, C for computer."
+     answer = gets.chomp
+     if answer.downcase.start_with?('p')
+       start_choice = 'player'
+       break
+     elsif answer.downcase.start_with?('c')
+       start_choice = 'computer'
+       break
+     else
+       prompt 'Not a valid choice, please choose "P" or "C"!'
+  end
+  start_choice
+end
+
+def first_player(start_choice)
+  if PLAYS_FIRST == 'choose'
+    choose_player(start_choice)
+  elsif PLAYS_FIRST == 'player'
+    'player'
+  else
+    'computer'
   end
 end
 
@@ -131,7 +169,7 @@ loop do
     break if someone_won?(board) || board_full?(board)
   end
 
- display_board(board)
+  display_board(board)
 
   if detect_winner(board) == 'Player'
     players_the_winner += 1
@@ -157,5 +195,5 @@ loop do
   # break if play_again.downcase == 'n'
   break unless play_again.downcase.start_with?('y')
 end
-
+end
 prompt "Thanks for playing tic tac toe, good bye!"
