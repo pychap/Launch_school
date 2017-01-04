@@ -67,7 +67,9 @@ end
 | title | link   | issue(s) to learn |
 | :---- | :----  | :---------------- |
 | Question 2 | [Q2](https://launchschool.com/lessons/263069da/assignments/6eba600c) | Scanning letters, building hash (problem is refrenced above) |  
-| Question 9 | [Q2, Q8, Q9](https://launchschool.com/lessons/263069da/assignments/6eba600c) | Appending hashes, nested hashes(2, 9), code simplicity(2, 8, 9) | 
+| Question 9 | [Q2, Q8, Q9](https://launchschool.com/lessons/263069da/assignments/6eba600c) | Appending hashes, nested hashes(2, 9), code simplicity(2, 8, 9) |
+| More than One | [Nail this](https://launchschool.com/exercises/fea51eb2) | Accessing arrays |
+| Mulitple cars | [Nested hash](https://launchschool.com/exercises/8351bb9b) | foo |
 
 
 ### Comment to me from code review (on multiple `if` statements)
