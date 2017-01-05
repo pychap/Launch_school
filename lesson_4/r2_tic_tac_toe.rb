@@ -12,7 +12,6 @@ def prompt(msg)
   puts "››››› #{msg}"
 end
 
-# rubocop:disable Metrics/MethodLength, Metrics/AbcSize
 def display_board(brd)
   system 'clear'
   puts "You are #{PLAYER_MARKER}, Computer is #{COMPUTER_MARKER}."
@@ -30,7 +29,6 @@ def display_board(brd)
   puts "     |     |"
   puts ""
 end
-# rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
 def initialize_board
   new_board = {}
@@ -54,6 +52,14 @@ def joinor(arr, delimiter=', ', word='or')
   end
 end
 
+def find_at_risk_square(line, board)
+  if board.values_at(*line).count('X') == 2
+    board.select { |k, v| line.include?(k) && v == ' ' }.keys.first
+  else
+    nil
+  end
+end
+
 def player_places_piece!(brd)
   square = ''
   loop do
@@ -67,14 +73,16 @@ end
 
 def computer_places_piece!(brd)
   square = nil
-
+  WINNING_LINES.each do |line|
+    square = find_at_risk_square(line, brd)
+    break if square
+  end
   # offense
   if !square
     WINNING_LINES.each do |line|
       square = find_at_risk_square(line, brd, PLAYER_MARKER)
       break if square
     end
-
     # defense
     WINNING_LINES.each do |line|
       square = find_at_risk_square(line, brd, PLAYER_MARKER)
@@ -82,7 +90,6 @@ def computer_places_piece!(brd)
     end
     square = 5 if brd[5] == INITIAL_MARKER && !square
   end
-
   # just pick a square
   if !square
     square = empty_squares(brd).sample
@@ -132,20 +139,21 @@ def find_at_risk_square(line, board, marker)
 end
 
 def choose_player(start_choice)
-   loop do
-     prompt "Would you like to start, or would you prefer the computer start?"
-     prompt "P for you, C for computer."
-     answer = gets.chomp
-     if answer.downcase.start_with?('p')
-       start_choice = 'player'
-       break
-     elsif answer.downcase.start_with?('c')
-       start_choice = 'computer'
-       break
-     else
-       prompt 'Not a valid choice, please choose "P" or "C"!'
+  loop do
+    prompt "Would you like to start, or would you prefer the computer start?"
+    prompt "P for you, C for computer."
+    answer = gets.chomp
+    if answer.downcase.start_with?('p')
+      start_choice = 'player'
+      break
+    elsif answer.downcase.start_with?('c')
+      start_choice = 'computer'
+      break
+    else
+      prompt 'Not a valid choice, please choose "P" or "C"!'
+    end
+    start_choice
   end
-  start_choice
 end
 
 def first_player(start_choice)
@@ -190,10 +198,15 @@ loop do
   else
     prompt "It's a tie!"
   end
+
   prompt "Play again? Y or N"
   play_again = gets.chomp
   # break if play_again.downcase == 'n'
   break unless play_again.downcase.start_with?('y')
 end
+<<<<<<< HEAD
 # end
+=======
+
+>>>>>>> b0be1ef11d2b4ea6297c69f027410d7f34f5ba90
 prompt "Thanks for playing tic tac toe, good bye!"
