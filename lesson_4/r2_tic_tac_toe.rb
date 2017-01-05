@@ -52,9 +52,11 @@ def joinor(arr, delimiter=', ', word='or')
   end
 end
 
-def find_at_risk_square(line, board)
-  if board.values_at(*line).count('X') == 2
-    board.select { |k, v| line.include?(k) && v == ' ' }.keys.first
+# from possible solution...line 66  https://github.com/Zane5/LS_work/blob/master/lesson_4/tictactoe.rb
+def find_at_risk_square(line, brd, marker)
+  if brd.values_at(*line).count(marker) == 2
+    # the line below tests for truthyness
+    brd.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
   else
     nil
   end
@@ -71,29 +73,26 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
+def computer_smarts(spot, brd, marker)
+  WINNING_LINES.each do |line|
+    spot = find_at_risk_square(line, brd, marker)
+    break if spot
+  end
+  spot
+end
+
 def computer_places_piece!(brd)
   square = nil
-  WINNING_LINES.each do |line|
-    square = find_at_risk_square(line, brd)
-    break if square
-  end
+
   # offense
-  if !square
-    WINNING_LINES.each do |line|
-      square = find_at_risk_square(line, brd, PLAYER_MARKER)
-      break if square
-    end
-    # defense
-    WINNING_LINES.each do |line|
-      square = find_at_risk_square(line, brd, PLAYER_MARKER)
-      break if square
-    end
-    square = 5 if brd[5] == INITIAL_MARKER && !square
-  end
-  # just pick a square
-  if !square
-    square = empty_squares(brd).sample
-  end
+  square = computer_smarts(square, brd, COMPUTER_MARKER)
+
+  # defense
+  square = computer_smarts(square, brd, PLAYER_MARKER) unless square
+
+  square = 5 if brd[5] == INITIAL_MARKER && !square
+  square = empty_squares(brd).sample unless square
+
   brd[square] = COMPUTER_MARKER
 end
 
@@ -124,17 +123,6 @@ def first_to_five(players_the_winner, computers_the_winner)
   elsif computers_the_winner == 5
     prompt "Computer has won 5 games, congratulations!"
     return true
-  end
-end
-
-# from possible solution...
-def find_at_risk_square(line, board, marker)
-  if board.values_at(*line).count(marker) == 2
-    # the line below tests for truthyness
-    board.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
-    # binding.pry
-  else
-    nil
   end
 end
 
@@ -204,9 +192,5 @@ loop do
   # break if play_again.downcase == 'n'
   break unless play_again.downcase.start_with?('y')
 end
-<<<<<<< HEAD
-# end
-=======
 
->>>>>>> b0be1ef11d2b4ea6297c69f027410d7f34f5ba90
 prompt "Thanks for playing tic tac toe, good bye!"

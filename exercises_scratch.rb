@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require 'pry'
 
 say_hello = true
@@ -33,9 +32,6 @@ def count_frequency(word_list)
   # binding.pry
 end
 
-<<<<<<< HEAD
 p count_frequency(array_of_words)
-=======
+
 p create_hash
->>>>>>> b865ca0fbf4127e625ef06bf0c70f8349a65624b
->>>>>>> b0be1ef11d2b4ea6297c69f027410d7f34f5ba90
