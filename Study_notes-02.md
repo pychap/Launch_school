@@ -57,7 +57,7 @@ This method returns a modified array, at the same time, mutates the original arr
 -------
 
 ###### pass by vs reference values
-when an operation within the method mutates the caller, it will affect the original object
+When an operation within the method mutates the caller, it will affect the original object
 
 -------------------
 

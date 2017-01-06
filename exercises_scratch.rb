@@ -1,17 +1,5 @@
 require 'pry'
-
-say_hello = true
-	counter = 0
-
-while say_hello
-
-    puts 'Hello!'
-    counter += 1
-  say_hello = false if counter == 5
-end
-=======
-require 'pry'                  # => true
-require 'seeing_is_believing'  # => true
+# require 'seeing_is_believing'
 
 sentence_of_words = "Sparky the cat sat on the mat with the hat."
 
@@ -24,9 +12,10 @@ array_of_words = words_from_string(sentence_of_words)
 
 def count_frequency(word_list)
   counts = Hash.new(0)
+  # in for loop below "word" is a parameter, not a variable
   for word in word_list
     counts[word] += 1
-    binding.pry
+    # binding.pry
   end
   counts
   # binding.pry

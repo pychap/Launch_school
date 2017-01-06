@@ -118,10 +118,10 @@ end
 
 def first_to_five(players_the_winner, computers_the_winner)
   if players_the_winner == 5
-    prompt "Player has won 5 games, congratulations!"
+    prompt "Player's won 5 games, congratulations!"
     return true
   elsif computers_the_winner == 5
-    prompt "Computer has won 5 games, congratulations!"
+    prompt "Computer's won 5 games, better luck next time!"
     return true
   end
 end
