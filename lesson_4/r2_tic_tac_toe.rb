@@ -156,9 +156,11 @@ end
 
 loop do
   board = initialize_board
+  choose_player(PLAYS_FIRST)
+  binding.pry
   loop do
     display_board(board)
-    player_places_piece!(board)
+    player_places_piece!(board) # this line dynamic - result of choose_player...
     break if someone_won?(board) || board_full?(board)
 
     computer_places_piece!(board)
@@ -194,3 +196,6 @@ loop do
 end
 
 prompt "Thanks for playing tic tac toe, good bye!"
+
+
+
