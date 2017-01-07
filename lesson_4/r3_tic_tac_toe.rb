@@ -142,30 +142,18 @@ def first_to_five(players_the_winner, computers_the_winner)
   end
 end
 
-# method from another student
-# def first_player(start_choice)
-#   if PLAYS_FIRST == 'choose'
-#     choose_player(start_choice)
-#   elsif PLAYS_FIRST == 'player'
-#     'player'
-#   else
-#     'computer'
-#   end
-# end
-
 loop do
   board = initialize_board
   # call choose_player method
-  choose_player
-  decision = choose_player
-  binding.pry
+  # choose_player
+  # binding.pry
 
   loop do
     display_board(board)
-    if decision == 'player'
+    if choose_player == 'player'
       player_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
-    elsif decision == 'computer'
+    elsif choose_player == 'computer'
       computer_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
     end
