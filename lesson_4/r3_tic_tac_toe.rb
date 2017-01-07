@@ -152,9 +152,11 @@ loop do
     display_board(board)
     if choose_player == 'player'
       player_places_piece!(board)
+      computer_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
     elsif choose_player == 'computer'
       computer_places_piece!(board)
+      player_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
     end
     # should there be another command here?
