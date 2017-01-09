@@ -13,19 +13,20 @@ def prompt(msg)
 end
 
 def choose_player
+  start_choice = ''
   loop do
     puts "Would you like to start, or would you prefer the computer start?"
     puts "Enter P for you, C for computer."
-    start_choice = gets.chomp
-    if start_choice.downcase.start_with?('p')
+    user_answer = gets.chomp
+    if user_answer.downcase.start_with?('p')
       return start_choice = 'player'
-    elsif start_choice.downcase.start_with?('c')
+    elsif user_answer.downcase.start_with?('c')
       return start_choice = 'computer'
     else
       puts 'Not a valid choice, please choose "P" or "C"!'
     end
   end
-  start_choice
+  return start_choice
 end
 
 def display_board(brd)
@@ -145,16 +146,16 @@ end
 loop do
   board = initialize_board
   # call choose_player method
-  # choose_player
+  usr_choice = choose_player
   # binding.pry
 
   loop do
     display_board(board)
-    if choose_player == 'player'
+    if usr_choice == 'player'
       player_places_piece!(board)
       computer_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
-    elsif choose_player == 'computer'
+    elsif usr_choice == 'computer'
       computer_places_piece!(board)
       player_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
