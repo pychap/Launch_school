@@ -13,19 +13,20 @@ def prompt(msg)
 end
 
 def choose_player
+  start_choice = ''
   loop do
     puts "Would you like to start, or would you prefer the computer start?"
     puts "Enter P for you, C for computer."
-    start_choice = gets.chomp
-    if start_choice.downcase.start_with?('p')
+    user_answer = gets.chomp
+    if user_answer.downcase.start_with?('p')
       return start_choice = 'player'
-    elsif start_choice.downcase.start_with?('c')
+    elsif user_answer.downcase.start_with?('c')
       return start_choice = 'computer'
     else
       puts 'Not a valid choice, please choose "P" or "C"!'
     end
   end
-  start_choice
+  return start_choice
 end
 
 def display_board(brd)
@@ -68,7 +69,6 @@ def joinor(arr, delimiter=', ', word='or')
   end
 end
 
-# from possible solution...line 66  https://github.com/Zane5/LS_work/blob/master/lesson_4/tictactoe.rb
 def find_at_risk_square(line, brd, marker)
   if brd.values_at(*line).count(marker) == 2
     # the line below tests for truthyness
@@ -89,21 +89,19 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
-def computer_smarts(spot, brd, marker)
+def computer_smarts(sqr, brd, marker)
   WINNING_LINES.each do |line|
-    spot = find_at_risk_square(line, brd, marker)
-    break if spot
+    sqr = find_at_risk_square(line, brd, marker)
+    break if sqr
   end
-  spot
+  sqr
 end
 
 def computer_places_piece!(brd)
   square = nil
-
   # offense
   square = computer_smarts(square, brd, COMPUTER_MARKER)
-
-  # defense
+  # defense (square nil = false)
   square = computer_smarts(square, brd, PLAYER_MARKER) unless square
 
   square = 5 if brd[5] == INITIAL_MARKER && !square
@@ -132,6 +130,9 @@ def detect_winner(brd)
   nil
 end
 
+players_the_winner = 0
+computers_the_winner = 0
+
 def first_to_five(players_the_winner, computers_the_winner)
   if players_the_winner == 5
     prompt "Player's won 5 games, congratulations!"
@@ -142,30 +143,24 @@ def first_to_five(players_the_winner, computers_the_winner)
   end
 end
 
-# def first_player(start_choice)
-#   if PLAYS_FIRST == 'choose'
-#     choose_player(start_choice)
-#   elsif PLAYS_FIRST == 'player'
-#     'player'
-#   else
-#     'computer'
-#   end
-# end
-
-
 loop do
   board = initialize_board
+  # call choose_player method
+  usr_choice = choose_player
   # binding.pry
+
   loop do
     display_board(board)
-
-    if choose_player == 'player'
+    if usr_choice == 'player'
+      player_places_piece!(board)
+      computer_places_piece!(board)
+      break if someone_won?(board) || board_full?(board)
+    elsif usr_choice == 'computer'
+      computer_places_piece!(board)
       player_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
-    elsif choose_player == 'computer'
-      computer_places_piece!(board)
-      break if someone_won?(board) || board_full?(board)    
     end
+    # should there be another command here?
   end
 
   display_board(board)
@@ -192,11 +187,7 @@ loop do
 
   prompt "Play again? Y or N"
   play_again = gets.chomp
-  # break if play_again.downcase == 'n'
   break unless play_again.downcase.start_with?('y')
 end
 
 prompt "Thanks for playing tic tac toe, good bye!"
-
-
-
