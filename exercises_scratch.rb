@@ -24,3 +24,6 @@ end
 p count_frequency(array_of_words)
 
 p create_hash
+
+
+arr = [['name', 'Joe'], ['age', 10], ['favorite_color', 'blue']]
