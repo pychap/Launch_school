@@ -1,11 +1,12 @@
-str = "joe's favorite color is blue"
+require 'pry'
 
-# change the 1st letter of each word to uppercase
-
-new_arr = str.split(' ')
-
-title_case = new_arr.map do |word| 
-  word[0].upcase + word[1..-1]
+def greeting
+  puts 'Hello!'
 end
 
-p title_case
+number_of_greetings = 2
+
+while number_of_greetings > 0
+ greeting
+ number_of_greetings -= 1
+end
