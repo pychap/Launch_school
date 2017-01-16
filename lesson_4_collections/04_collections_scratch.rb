@@ -1,11 +1,6 @@
-str = "joe's favorite color is blue"
+require 'pry'
 
-# change the 1st letter of each word to uppercase
-
-new_arr = str.split(' ')
-
-title_case = new_arr.map do |word| 
-  word[0].upcase + word[1..-1]
+{ a: "ant", b: "bear", c: "cat" }.each_with_object([]) do |pair, array|
+	binding.pry
+  array << pair.last
 end
-
-p title_case
