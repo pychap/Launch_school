@@ -1,8 +1,15 @@
 require 'pry'
 # require 'seeing_is_believing'
 
-sentence_of_words = "Sparky the cat sat on the mat with the hat."
+number_of_pets = {
+  'dogs' => 2,
+  'cats' => 4,
+  'fish' => 1
+}
+pets = number_of_pets.keys # => ['dogs', 'cats', 'fish']
+counter = 0
 
+<<<<<<< HEAD
 def words_from_string(string)
   string.downcase.scan(/[\w']+/)
 end
@@ -27,3 +34,12 @@ p create_hash
 
 
 arr = [['name', 'Joe'], ['age', 10], ['favorite_color', 'blue']]
+=======
+loop do
+  break if counter == number_of_pets.size
+  current_pet = pets[counter]
+  current_pet_number = number_of_pets[current_pet]
+  puts "I have #{current_pet_number} #{current_pet}!"
+  counter += 1
+end
+>>>>>>> d3ca6dae8e41b3a1608020ac46a41bb39e1076ea

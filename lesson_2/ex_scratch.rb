@@ -184,11 +184,11 @@ loop do
   current_player = who_acts_first
   loop do
     board = initialize_board
-    first_to_act = current_player
+    first_to_move = current_player
     loop do
       display_board(board)
-      place_piece!(board, first_to_act)
-      first_to_act = alternate_player(first_to_act)
+      place_piece!(board, first_to_move)
+      first_to_move = alternate_player(first_to_move)
       break if someone_won?(board) || board_full?(board)
     end
     display_board(board)
