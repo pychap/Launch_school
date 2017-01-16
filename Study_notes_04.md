@@ -103,11 +103,15 @@ p select_fruit(produce)
 
 These methods each utilize the block's return value in their own way. In the case of `each`, the return value of the block is simply ignored. Before moving forward, it is crucial to understand how exactly these methods use the block's return value to perform their intended task.
 
+--
 
-
-
-
-
-
-
-
+##### More methods to know:  
+| Method  | important parts: |  
+| :-----  | :---------------- |
+| `Enumerable#any?`  | There are two return values that we need to be aware of here: the return value of the method and the return value of the block. `any?` looks at the truthiness of the block's return value in order to determine what the method's return value will be. If the block returns a "truthy" value for any element in the collection, then the method will return `true`.  |
+| `Enumerable#all?`  |   |
+| `Enumerable#each_with_index`  |   |
+| `Enumerable#each_with_object`  |   |
+| `Enumerable#first`  |   |
+| `Enumerable#include?`  |   |
+| `Enumerable#partition?`  |   |
