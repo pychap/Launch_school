@@ -95,7 +95,7 @@ p select_fruit(produce)
 <td><code>map</code></td>
 <td>Transformation</td>
 <td>Yes</td>
-<td>Yes</td>
+<td>Yes, an array</td>
 <td>Length of original</td>
 </tr>
 </tbody>
@@ -123,4 +123,17 @@ These methods each utilize the block's return value in their own way. In the cas
 --  
 
 ##### Sorting  
-Sorting is _comparing_ items in a collection with each other and ordering them based on that comparison. _Comparison is the heart of how sorting works_.
+Sorting is _comparing_ items in a collection with each other and ordering them based on that comparison. _Comparison is the heart of how sorting works_.  
+* Sorting is mostly used on arrays
+* `sort` and `sort_by` are more commonly used - they return arrays
+* Any object in a collection we want to sort **must** implement a `<=>` method.  
+* The _spaceship_ method `<=>` performs comparison between two objects of the same type and returns a `-1`, `0`, or a `1` depending on whether the first object is less than, equal to, or greater than the second object; if the two objects cannot be compared then `nil` is returned.
+* Determining the order of a character is determined by ASCII. The way to find order of a character is to use `.ord`  
+
+##### Other methods that use comparison
+* `min`
+* `max`
+* `minmax`
+* `min_by`
+* `max_by`
+* `minmax_by`
