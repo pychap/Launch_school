@@ -1,8 +1,6 @@
 require 'pry'
 
-
-{ a: 'anteater', b: 'bear' }.select do |key, value|
-  if value.size > 3
-    value
-  end
+['ant', 'bear', 'cat'].each_with_object({}) do |value, hash|
+  hash[value[0]] = value
+  binding.pry
 end

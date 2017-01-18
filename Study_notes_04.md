@@ -137,3 +137,12 @@ Sorting is _comparing_ items in a collection with each other and ordering them b
 * `min_by`
 * `max_by`
 * `minmax_by`
+
+##### Methods, more methods and sorting
+Review these exercises:  
+1. Value of [`select`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+3. Value of [`reject`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+4. Value of [`each_with_object`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+6. Value of [statement return](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+7.Value of [`odd?`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+10. [Method return](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
