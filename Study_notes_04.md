@@ -145,4 +145,24 @@ Review these exercises:
 4. Value of [`each_with_object`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
 6. Value of [statement return](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
 7.Value of [`odd?`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+9.Return value of [`map`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de) 
 10. [Method return](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
+
+------- 
+
+#### One way to create hash from an array using `each_with_object`  
+
+Instead of returning the original collection, `each_with_object` returns the initially given object  
+
+---  
+
+#### Nested data structures
+Didn't know: the `<<` operation below is "destructive" (?)  
+
+```ruby
+  arr = [[1], [2]]
+  arr[0] << 3
+  arr # => [[1, 3], [2]]
+```  
+
+The line arr`[0] << 3` is again a two part chain: the first part, `a[0]` is element reference and returns `[1]`; and the second part can be thought of as `[1] << 3`, which destructively appends `3` into the inner array.
