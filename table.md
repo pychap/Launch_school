@@ -1,4 +1,4 @@
-## Method table  
+## Method table   
 
 <table>
 <thead>
