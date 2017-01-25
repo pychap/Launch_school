@@ -1,5 +1,8 @@
 # Study notes 03
 -------------  
+
+**side effect**: a side effect is an output, or destructive action
+
 Simple building a hash from an array ([example from this page](https://robots.thoughtbot.com/iteration-as-an-anti-pattern#build-a-hash-from-an-array))
 ```ruby
 def signer_keys_and_uids
