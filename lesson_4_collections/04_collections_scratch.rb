@@ -1,12 +1,20 @@
 require 'pry'
 
-books = [
-  {title: 'One Hundred Years of Solitude', author: 'Gabriel Garcia Marquez', published: '1967'},
-  {title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', published: '1925'},
-  {title: 'War and Peace', author: 'Leo Tolstoy', published: '1869'},
-  {title: 'Ulysees', author: 'James Joyce', published: '1922'}
-]
+arr = [[[1], [2], [3], [4]], [['a'], ['b'], ['c']]]
 
-p books.sort_by { |key, value| key[:published] }
+def do_it(foo)
+  foo.map do |element1|
+    element1.each do |element2|
+      element2.partition do |element3|
+        binding.pry
+        element3.size > 0
+      end
+    end
+  end
+end
 
+p do_it(arr)
 
+[1, 2, 3].each do |num|
+  puts num += 1
+end
