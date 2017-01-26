@@ -166,4 +166,6 @@ Didn't know: the `<<` operation below is "destructive" (?)
   arr # => [[1, 3], [2]]
 ```  
 
-The line arr`[0] << 3` is again a two part chain: the first part, `a[0]` is element reference and returns `[1]`; and the second part can be thought of as `[1] << 3`, which destructively appends `3` into the inner array.
+The line arr`[0] << 3` is again a two part chain: the first part, `a[0]` is element reference and returns `[1]`; and the second part can be thought of as `[1] << 3`, which destructively appends `3` into the inner array.  
+
+The important thing to be aware of is exactly what level you're working at, especially when working with nested collections and using variables as pointers; are you working at the level of an outer array or hash, or at the level of an object within that?  
