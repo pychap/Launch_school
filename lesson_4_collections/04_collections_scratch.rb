@@ -1,20 +1,10 @@
 require 'pry'
 
-arr = [[[1], [2], [3], [4]], [['a'], ['b'], ['c']]]
+# Create a hash that expresses the frequency with which each letter occurs in this string:
 
-def do_it(foo)
-  foo.map do |element1|
-    element1.each do |element2|
-      element2.partition do |element3|
-        binding.pry
-        element3.size > 0
-      end
-    end
-  end
-end
-
-p do_it(arr)
-
-[1, 2, 3].each do |num|
-  puts num += 1
+numbers = [1, 2, 3, 4]
+numbers.each_with_index do |number, index|
+  p "#{index}  #{numbers.inspect}  #{number}"
+  # binding.pry
+  numbers.shift(1)
 end
