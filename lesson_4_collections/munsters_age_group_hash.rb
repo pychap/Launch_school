@@ -10,15 +10,26 @@ munsters = {
   "Marilyn" => { "age" => 23, "gender" => "female"}
 }
 
-kid = 0..17
+kid = 0..17   # (0..17).include?(9) => true
 adult = 18..64
 senior = 65
+munsters_keys = munsters.keys
 
 
 case munsters
-when condition
-  munsters["Herman"] = ["age"][kid]
-  
+when munsters_keys[index]["age"].include?(kid)
+     munsters_keys[index] = ["age_group"]["kid"]
+when munsters_keys[index]["age"].include?(adult)
+     munsters_keys[index] = ["age_group"]["adult"]
+when munsters_keys[index]["age"].include?(senior)
+     munsters_keys[index] = ["age_group"]["senior"]
   else
     break
 end
+
+
+mary["age_group"] = "adult"
+=> "adult"
+
+mary
+=> {"Marilyn"=>{"age"=>23, "gender"=>"female"}, "age_group"=>"adult"}
