@@ -80,7 +80,7 @@ p select_fruit(produce)
 <tr>
 <td><code>each</code></td>
 <td>Iteration</td>
-<td>No</td>
+<td>No, ignores return value of the block.</td>
 <td>No, it returns the original</td>
 <td>Length of original</td>
 </tr>
@@ -94,7 +94,7 @@ p select_fruit(produce)
 <tr>
 <td><code>map</code></td>
 <td>Transformation</td>
-<td>Yes</td>
+<td>Yes, <mark>the block's return value is used by</mark> <code>map</code>.</td>
 <td>Yes, an array</td>
 <td>Length of original</td>
 </tr>
@@ -119,6 +119,7 @@ These methods each utilize the block's return value in their own way. In the cas
 | `Enumerable#first`  | `first` doesn't take a block, but it does take an optional argument which represents the number of elements to return. When no argument is given, it returns only the first element in the collection. Rearely used with hash. |
 | `Enumerable#include?`  | `include?` doesn't take a block, but it does require one argument. It returns `true` if the argument exists in the collection and `false` if it doesn't.  |
 | `Enumerable#partition?`  | `partition` divides up elements in the current collection into two collections, depending on the block's return value.  |
+| `#freeze`  | objects can be frozen in order to prevent them from being modified. `#freeze` only freezes the object it's called on. Only mutable objects can be frozen because immutable objects, like integers, are already frozen. |
 
 --  
 
