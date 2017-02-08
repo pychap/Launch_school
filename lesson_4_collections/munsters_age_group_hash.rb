@@ -28,4 +28,8 @@ when munsters_keys[index]["age"].include?(senior)
 end
 
 
-{"Marilyn" => { "age" => 23, "gender" => "female"}}
+mary["age_group"] = "adult"
+=> "adult"
+
+mary
+=> {"Marilyn"=>{"age"=>23, "gender"=>"female"}, "age_group"=>"adult"}
