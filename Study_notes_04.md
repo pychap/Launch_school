@@ -149,7 +149,13 @@ Review these exercises:
 9.Return value of [`map`](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de) 
 10. [Method return](https://launchschool.com/lessons/000a3b33/assignments/0f8ce8de)  
 
-------- 
+-------  
+
+#### Shallow Copy  
+
+Ruby gives us two methods to copy an object, including collections: `dup` and `clone` Both methods create a [*shallow copy*](https://launchschool.com/lessons/000a3b33/assignments/571761bf) of an object meaning only the object the method is called on is copied. If the object contains other objects - like a nested array - then those objects will be *shared*, not copied.  
+
+-------
 
 #### One way to create hash from an array using `each_with_object`  
 

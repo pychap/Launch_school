@@ -8,3 +8,4 @@ numbers.each_with_index do |number, index|
   # binding.pry
   numbers.shift(1)
 end
+
