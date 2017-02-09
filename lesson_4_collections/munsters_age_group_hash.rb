@@ -13,15 +13,13 @@ munsters = {
 munsters_keys = munsters.keys
 
 munsters_keys.each do |m_key|
-  case munsters
+  case
     when (0..17).include?(munsters[m_key]["age"])
-         munsters << munsters[m_key]["age_group"] = "kid"
-         binding.pry
+         munsters[m_key]["age_group"] = "kid"
     when (18..64).include?(munsters[m_key]["age"])
-         binding.pry
-         munsters << munsters[m_key]["age_group"] = "adult"
+         munsters[m_key]["age_group"] = "adult"
     when munsters[m_key]["age"] >= 65
-         munsters << munsters[m_key]["age_group"] = "senior"
+         munsters[m_key]["age_group"] = "senior"
     else
          puts "sorry, no values changed."
   end
