@@ -8,31 +8,14 @@ munsters = {
   "Marilyn" => { "age" => 23, "gender" => "female"}
 }
 
-munsters.each do |name, details|
-  binding.pry
-  case details["age"]
-  when 0...18
-    details["age_group"] = "kid"
-  when 18...65
-    details["age_group"] = "adult"
-  else
-    details["age_group"] = "senior"
+arr = [['1', '8', '11'], ['2', '6', '13'], ['2', '12', '15'], ['1', '8', '9']]
+
+foo = arr.sort_by do |sub_arr|
+  # the map below returns numerals
+  sub_arr.map do |num|
+    # binding.pry
+    num.to_i
   end
 end
 
-
-
-case some_object
-  when "Jim"
-    # talk to Jim
-  when "Bob"
-    # talk to Bob
-end
-
-
-case
-  when some_object == 'Jim'
-    # talk to Jim
-  when some_object == 'Bob'
-    # talk to Bob
-end
+p foo
