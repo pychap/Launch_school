@@ -1,24 +1,15 @@
 require 'pry'
 
-# Modify the hash such that each member of the Munster family has an additional "age_group" key that has one of three values describing the age group the family member is in (kid, adult, or senior). 
 
-munsters = {
-  "Herman" => { "age" => 32, "gender" => "male" },
-  "Lily" => { "age" => 30, "gender" => "female" },
-  "Grandpa" => { "age" => 402, "gender" => "male" },
-  "Eddie" => { "age" => 10, "gender" => "male" },
-  "Marilyn" => { "age" => 23, "gender" => "female"}
-}
-
-kid = 0..17
-adult = 18..64
-senior = 65
-
-
-case munsters
-when condition
-  munsters["Herman"] = ["age"][kid]
-  
-  else
-    break
+[[[1, 2], [3, 4]], [5, 6]].map do |arr|
+  arr.map do |el|
+    binding.pry
+    if el.to_s.size == 1    # it's an integer
+      el + 1
+    else                    # it's an array
+      el.map do |n|
+        n + 1
+      end
+    end
+  end
 end
