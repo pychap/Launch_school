@@ -111,7 +111,6 @@ def computer_places_piece!(brd)
 end
 
 def board_full?(brd)
-  # binding.pry
   empty_squares(brd).empty?
 end
 
@@ -143,14 +142,15 @@ def first_to_five(players_the_winner, computers_the_winner)
   end
 end
 
+# start the game loop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 loop do
   board = initialize_board
-  # call choose_player method
   usr_choice = choose_player
-  # binding.pry
 
   loop do
     display_board(board)
+
     if usr_choice == 'player'
       player_places_piece!(board)
       computer_places_piece!(board)
@@ -179,7 +179,6 @@ loop do
   break if first_to_five(players_the_winner, computers_the_winner)
 
   if someone_won?(board)
-    # binding.pry
     prompt "#{detect_winner(board)} won!"
   else
     prompt "It's a tie!"
