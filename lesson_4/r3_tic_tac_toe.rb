@@ -26,7 +26,7 @@ def choose_player
       puts 'Not a valid choice, please choose "P" or "C"!'
     end
   end
-  return start_choice
+  start_choice
 end
 
 def display_board(brd)
