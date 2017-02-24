@@ -26,7 +26,7 @@ def choose_player
       puts 'Not a valid choice, please choose "P" or "C"!'
     end
   end
-  return start_choice
+  start_choice
 end
 
 def display_board(brd)
@@ -73,8 +73,6 @@ def find_at_risk_square(line, brd, marker)
   if brd.values_at(*line).count(marker) == 2
     # the line below tests for truthyness
     brd.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
-  else
-    nil
   end
 end
 
@@ -142,25 +140,34 @@ def first_to_five(players_the_winner, computers_the_winner)
   end
 end
 
+# new methods
+
+def place_piece!(brd, player)
+  if player == "player"
+    player_places_piece!(brd)
+  else
+    computer_places_piece!(brd)
+  end
+end
+
+def alternate_player(current)
+  current == 'player' ? 'computer' : 'player'
+end
+
 # start the game loop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 loop do
   board = initialize_board
-  usr_choice = choose_player
+  current_player = choose_player
+  # binding.pry
 
   loop do
     display_board(board)
+    place_piece!(board, current_player)
 
-    if usr_choice == 'player'
-      player_places_piece!(board)
-      computer_places_piece!(board)
-      break if someone_won?(board) || board_full?(board)
-    elsif usr_choice == 'computer'
-      computer_places_piece!(board)
-      player_places_piece!(board)
-      break if someone_won?(board) || board_full?(board)
-    end
-    # should there be another command here?
+    current_player = alternate_player(current_player)
+    # binding.pry
+    break if someone_won?(board) || board_full?(board)
   end
 
   display_board(board)
@@ -184,8 +191,20 @@ loop do
     prompt "It's a tie!"
   end
 
-  prompt "Play again? Y or N"
-  play_again = gets.chomp
+  play_again = ''
+  loop do
+    prompt "Play again? Y or N"
+    play_again = gets.chomp
+    case play_again
+    when 'n'
+      break
+    when 'y'
+      break
+    else
+      puts "Please choose either Y or N"
+    end
+    play_again
+  end
   break unless play_again.downcase.start_with?('y')
 end
 
