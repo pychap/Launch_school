@@ -12,10 +12,12 @@ def uuid_creator
     item.times do
      build_uuid << base_set.sample
     end
-    # binding.pry
-    if idx < idx.size
+
+    if idx < sections.size - 1
       new_uuid += build_uuid.join + "-"
-  else
+      # empty out array for next round
+      build_uuid = []
+    else
       new_uuid += build_uuid.join
     end
   end
