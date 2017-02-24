@@ -159,14 +159,12 @@ end
 loop do
   board = initialize_board
   current_player = choose_player
-  # binding.pry
 
   loop do
     display_board(board)
     place_piece!(board, current_player)
 
     current_player = alternate_player(current_player)
-    # binding.pry
     break if someone_won?(board) || board_full?(board)
   end
 
