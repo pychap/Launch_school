@@ -13,20 +13,20 @@ def prompt(msg)
 end
 
 def choose_player
-  start_choice = ''
   loop do
     puts "Would you like to start, or would you prefer the computer start?"
     puts "Enter P for you, C for computer."
     user_answer = gets.chomp
     if user_answer.downcase.start_with?('p')
-      return start_choice = 'player'
+      'player'
+      break
     elsif user_answer.downcase.start_with?('c')
-      return start_choice = 'computer'
+      'computer'
+      break
     else
       puts 'Not a valid choice, please choose "P" or "C"!'
     end
   end
-  start_choice
 end
 
 def display_board(brd)
@@ -54,7 +54,6 @@ def initialize_board
 end
 
 def empty_squares(brd)
-  # returns true or false
   brd.keys.select { |num| brd[num] == INITIAL_MARKER }
 end
 
@@ -140,8 +139,6 @@ def first_to_five(players_the_winner, computers_the_winner)
   end
 end
 
-# new methods
-
 def place_piece!(brd, player)
   if player == "player"
     player_places_piece!(brd)
@@ -194,14 +191,10 @@ loop do
     prompt "Play again? Y or N"
     play_again = gets.chomp
     case play_again
-    when 'n'
-      break
-    when 'y'
-      break
+    when 'y', 'n' then break
     else
       puts "Please choose either Y or N"
     end
-    play_again
   end
   break unless play_again.downcase.start_with?('y')
 end
