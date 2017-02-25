@@ -18,11 +18,9 @@ def choose_player
     puts "Enter P for you, C for computer."
     user_answer = gets.chomp
     if user_answer.downcase.start_with?('p')
-      'player'
-      break
+      return 'player'
     elsif user_answer.downcase.start_with?('c')
-      'computer'
-      break
+      return 'computer'
     else
       puts 'Not a valid choice, please choose "P" or "C"!'
     end
@@ -132,10 +130,10 @@ computers_the_winner = 0
 def first_to_five(players_the_winner, computers_the_winner)
   if players_the_winner == 5
     prompt "Player's won 5 games, congratulations!"
-    return true
+    true
   elsif computers_the_winner == 5
     prompt "Computer's won 5 games, better luck next time!"
-    return true
+    true
   end
 end
 
