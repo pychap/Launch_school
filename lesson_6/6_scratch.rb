@@ -1,16 +1,65 @@
 require 'pry'
 
 
-puts "Play again? Y or N"
-  play_again = gets.chomp
-  # if play_again != play_again.downcase('y') || play_again.downcase('n')
-  #   puts "Please choose either Y or N"
+deck = [
+  ["C", "A"], ["S", "5"], ["H", "10"],
+ ["S", "A"],
+ ["D", "A"],
+ ["C", "4"],
+ ["S", "J"],
+ ["S", "Q"],
+ ["S", "10"],
+ ["D", "5"],
+ ["S", "9"],
+ ["S", "K"],
+ ["H", "9"],
+ ["S", "8"],
+ ["D", "9"],
+ ["C", "2"],
+ ["D", "6"],
+ ["S", "4"],
+ ["D", "10"],
+ ["H", "5"],
+ ["D", "K"],
+ ["D", "J"],
+ ["S", "6"],
+ ["H", "8"],
+ ["H", "4"],
+ ["C", "8"],
+ ["S", "3"],
+ ["C", "K"],
+ ["D", "8"],
+ ["C", "Q"],
+ ["H", "Q"],
+ ["C", "7"],
+ ["H", "7"],
+ ["H", "2"],
+ ["S", "2"],
+ ["D", "2"],
+ ["H", "6"],
+ ["S", "7"],
+ ["H", "3"],
+ ["C", "J"],
+ ["C", "6"],
+ ["D", "Q"],
+ ["D", "4"],
+ ["H", "J"],
+ ["H", "A"],
+ ["D", "7"],
+ ["D", "3"],
+ ["C", "5"],
+ ["C", "10"],
+ ["C", "9"],
+ ["C", "3"],
+ ["H", "K"]]
 
-  case play_again
-  when 'n'
-    break
-  when 'y'
-    puts "Play on!"
-  else
-    puts "Please choose either Y or N"
-  end
+
+
+# set the speed
+speed = 90
+
+# somewhere later in the program ...
+speed > 55 ? puts("I can't drive 55!") : puts("I'm a careful driver")
+
+
+ test-expression ? if-true-expression : if-false-expression
