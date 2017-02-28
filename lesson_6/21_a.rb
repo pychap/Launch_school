@@ -39,7 +39,6 @@ def busted?(cards)
   total(cards) > 21
 end
 
-# :tie, :dealer, :player, :dealer_busted, :player_busted
 def detect_result(dealer_cards, player_cards)
   player_total = total(player_cards)
   dealer_total = total(dealer_cards)
@@ -118,12 +117,13 @@ loop do
 
     break if player_turn == 's' || busted?(player_cards)
   end
-
+  
+  player_total = total(player_cards)
   if busted?(player_cards)
     display_result(dealer_cards, player_cards)
     play_again? ? next : break
   else
-    prompt "You stayed at #{total(player_cards)}"
+    prompt "You stayed at #{player_total}"
   end
 
   # dealer turn
