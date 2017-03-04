@@ -81,8 +81,11 @@ def play_again?
 end
 
 loop do
-  prompt "Welcome to Twenty-One!"
-
+  msg = <<-MSG
+  Welcome to Twenty-One!
+     The player who wins 5 rounds first wins the game!
+  MSG
+  prompt msg
   # initialize vars
   deck = initialize_deck
   player_cards = []
