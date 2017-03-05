@@ -144,9 +144,10 @@ def card_limit_reached?(check, other_role, roleee, player_won, dealer_won)
         player_won += 1
       end
       break if match_done?(player_won, dealer_won)
+      continue?
       next
     else
-      prompt "Stopped at #{total(check)}"
+      prompt "#{roleee[0].upcase + roleee.slice(1, 5)} stopped at #{total(check)}"
       break
     end
   end
@@ -203,7 +204,7 @@ loop do
     end
 
     card_limit_reached?(player_cards, dealer_cards, 'player', player_won, dealer_won)
-    continue?
+
     # if busted?(player_cards)
     #   end_of_round_display(dealer_cards, player_cards)
     #   display_result(dealer_cards, player_cards)
@@ -227,7 +228,7 @@ loop do
     end
 
     card_limit_reached?(dealer_cards, player_cards, 'dealer', player_won, dealer_won)
-    continue?
+
     # if busted?(dealer_cards)
     #   prompt "Dealer total is now: #{total(dealer_cards)}"
     #   end_of_round_display(dealer_cards, player_cards)
