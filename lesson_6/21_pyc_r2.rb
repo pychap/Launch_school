@@ -123,17 +123,14 @@ end
 def show_cards(cards, role)
   cards.each_with_index do |card, index|
     message = "#{card[1]} of #{CARD_SUITS[card[0]]}"
-    if index.zero?
-      puts align_cards(message)
-    elsif role == 'player'
-      puts align_cards(message)
-    elsif role == 'dealer'
+    if index.zero? || role == 'player' || role == 'dealer'
       puts align_cards(message)
     end
   end
 end
 
-def card_limit_reached?(check, other_role, roleee, player_won, dealer_won)
+def card_limit_reached?(check, other_role, roleee,
+                        player_won, dealer_won)
   loop do
     if busted?(check)
       end_of_round_display(other_role, check)
@@ -147,7 +144,8 @@ def card_limit_reached?(check, other_role, roleee, player_won, dealer_won)
       continue?
       next
     else
-      prompt "#{roleee[0].upcase + roleee.slice(1, 5)} stopped at #{total(check)}"
+      prompt "#{roleee[0].upcase + roleee.slice(1, 5)}
+                stopped at #{total(check)}"
       break
     end
   end

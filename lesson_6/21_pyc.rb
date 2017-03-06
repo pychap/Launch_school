@@ -123,31 +123,8 @@ end
 def show_cards(cards, role)
   cards.each_with_index do |card, index|
     message = "#{card[1]} of #{CARD_SUITS[card[0]]}"
-    if index.zero?
+    if index.zero? || role == 'player' || role == 'dealer'
       puts align_cards(message)
-    elsif role == 'player'
-      puts align_cards(message)
-    elsif role == 'dealer'
-      puts align_cards(message)
-    end
-  end
-end
-
-def card_limit_reached?(check, other_role, roleee, player_won, dealer_won)
-  loop do
-    if busted?(check)
-      end_of_round_display(other_role, check)
-      display_result(other_role, check)
-      if roleee == 'player'
-        dealer_won += 1
-      elsif roleee == 'dealer'
-        player_won += 1
-      end
-      break if match_done?(player_won, dealer_won)
-      next
-    else
-      prompt "Stopped at #{total(check)}"
-      break
     end
   end
 end
@@ -202,18 +179,16 @@ loop do
       break if player_turn == 's' || busted?(player_cards)
     end
 
-    card_limit_reached?(player_cards, dealer_cards, 'player', player_won, dealer_won)
-    continue?
-    # if busted?(player_cards)
-    #   end_of_round_display(dealer_cards, player_cards)
-    #   display_result(dealer_cards, player_cards)
-    #   dealer_won += 1
-    #   break if match_done?(player_won, dealer_won)
-    #   continue?
-    #   next
-    # else
-    #   prompt "You stayed at #{total(player_cards)}"
-    # end
+    if busted?(player_cards)
+      end_of_round_display(dealer_cards, player_cards)
+      display_result(dealer_cards, player_cards)
+      dealer_won += 1
+      break if match_done?(player_won, dealer_won)
+      continue?
+      next
+    else
+      prompt "You stayed at #{total(player_cards)}"
+    end
 
     prompt 'Dealer\'s turn...'
 
@@ -226,19 +201,17 @@ loop do
       show_cards(dealer_cards, 'dealer')
     end
 
-    card_limit_reached?(dealer_cards, player_cards, 'dealer', player_won, dealer_won)
-    continue?
-    # if busted?(dealer_cards)
-    #   prompt "Dealer total is now: #{total(dealer_cards)}"
-    #   end_of_round_display(dealer_cards, player_cards)
-    #   display_result(dealer_cards, player_cards)
-    #   player_won += 1
-    #   break if match_done?(player_won, dealer_won)
-    #   continue?
-    #   next
-    # else
-    #   prompt "Dealer stays at #{total(dealer_cards)}"
-    # end
+    if busted?(dealer_cards)
+      prompt "Dealer total is now: #{total(dealer_cards)}"
+      end_of_round_display(dealer_cards, player_cards)
+      display_result(dealer_cards, player_cards)
+      player_won += 1
+      break if match_done?(player_won, dealer_won)
+      continue?
+      next
+    else
+      prompt "Dealer stays at #{total(dealer_cards)}"
+    end
 
     end_of_round_display(dealer_cards, player_cards)
     display_result(dealer_cards, player_cards)
