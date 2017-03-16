@@ -1,13 +1,17 @@
 1. The variable `str`, having been assigned the integer 1 in the outer scope on line 1, is thereby available in the inner scope of the loop (the reverse is not true - defined inside the scope of the block is not available outside unless explicitly returned). In this inner scope, `str` has been re-assigned the integer 2. The output of line 8 prints this new assignment.
+
 2. * The variable `str` has been assigned the integer `2` within the block scope. Because it's not explicitly returned it stays there and is unavailable outside of this scope and will throw a `NameError`.  
-Adding to my above answer; ahh, yes, `str` could also have been a method (dang!).  So then if `str` was a method above as imagined, then the code snippet would run, re-assigning `str` to the integer 2.
+Adding to my above answer; ahh, yes, `str` could also have been a method (dang!).  So then if `str` was a method above as imagined, then the code snippet would run, re-assigning `str` to the integer 2.  
+
 3. You cannot say with certainty whether the snippet will run or not. If `str` has been assigned a value above this snippet then that value would be output by the `puts` method on line 8, not the assignment on line 4.  
 If `str` has not been assigned previously, then a `NameError` will be thrown as the assignment of the integer 2 is unavailable outside of the loop's block as it also hasn't been explicitly returned.  
+
 4. `a_method` above hasn't had any data passed into it in the form of a parameter, nor is the method call on line 7 adding a value to pass (which it would need to do correspondingly), thus the statement `str = "hello"` is unavailable to the method's inner block to output to the display, raising an exception.  
 
 5. The code doesn't raise an exception because the variables have values assigned to them. `str` in the outer scope is assigned `"hello"` and `a_method`, when called on line 7, outputs to the display `"world"`, which is within the scope of `a_method` and not effected by the outer scope assignment.  No data is being passed into `a_method` so nothing outside of it's scope is brought in to affect the inner scope, essentially `a_method` has the data it needs.  
 The two string variables are not the same in this case, they do not share the same scope.  
-Ahh (dang again!), I neglected to mention that the underlying principle is that methods have/create their own scope, that any variables initialized inside of this scope aren't available outside of it unless explicitly returned, on the other hand, variables outside of the method's scope are available to the method's scope.
+
+Ahh (dang again!), I neglected to mention that the underlying principle is that methods have/create their own scope, that any variables initialized inside of this scope aren't available outside of it unless returned, on the other hand, variables outside of the method's scope are available to the method's inner scope.
   
 6. `b` is still `"hello"` because the mutation was performed on `a` after initial assignment of `a` through the shovel operator `<<` which is destructive, and creates a new object along with a new reference. 
 `b` on line 2 was assigned to point to the string `hello`. Up to this point both `a` and `b` point to the string object `hello`. Then on line 3, `a` is reassigned to point to the different object `hi`. This object `hi` is modified on line 4.   
@@ -19,13 +23,17 @@ The changes on lines 3 and 4 don't affect the variable `b`'s pointing to the obj
 
 If `a` was mutated on line 3 instead of just being re-assigned, then `b` when output to the display would be different.
 
-If `a` was mutated on line 3 instead of just being re-assigned, then `b` when output to the display would be different.
+If `a` was mutated on line 3 instead of just being re-assigned, then `b` when output to the display would be different.  
+
 7. A little unclear to me what you mean by "in use". Called? no.  All referencing objects? yes.  
 All of the variables `a`, `b`, `c` and `d` have strings assigned to them,  `a`, `b`, `c`  all reference the same object/string `"hello"`, `d` references the other object/string `"world"`.  
 I called `#object_id` on them through `irb` to confirm this, to come up with the answer.  
+
 8. The `change` method didn't mutate the reference passed in. The `+` method concatenates but doesn't mutate `greeting` thus the return value of the method isn't a permanent change to the `greeting` variable.  
+
 9. The `change` method here now mutates the caller upon return. Using the "shovel operator" `<<`, this makes a permanent change to the object referenced by the parameter `param`, also changing the object it references.  
 `<<` is a destructive method.  
+
 10. `greeting` is outputting to the display the object it references -- `"hello"` because the method hasn't been called on it thus the return value isn't being utilized or assigned to a variable.  For instance if below this the method `puts` was called on the method with parameter `puts change(greeting)` the return would be 'hi world`.  
 
 In this method change; on line 1, `param` is assigned to the variable `greeting` (which on line 6 has been assigned to the string `'hello'`), having been passed into the method from the method call on line 7. THEN on line 2, `param` is re-assigned to `hi`, it no longer points to the string object `hello`. For this exercise the modification of the `'hi'` string object on line 3 is inconsequential.  
@@ -39,9 +47,14 @@ So, on line 11, the variable greeting stands unmodified, and `puts` will output 
 
 12. `Array#map` transforms the caller, and returns a new, transformed array. `map` uses the return value of the block for it's  transformation, it doesn't care about truthyness. It returns the same sized collection that it called on.  
 13. `Array#select` determines the truthiness of a collection, using the return value of a block. It returns only those values that evaluate to `true`. It will return the original size/length of the collection or smaller.  
+  
 14. You are doing the same thing, adding an integer to each index of the array. `+=` is incrementing the values, `+` could also be a concatenation.  
 `+=` is the preferred method.  
+
 15. The expression `n > 2` is an evaluation expression returning either a `true` or `false` -- a boolean. As the block iterates, the index of the array is evaluated per this expression, thus `map` uses this return value in it's "transformation" and returns the array `[false, false, true]`  
+  
 16. `[nil, nil, nil]` is assigned to `arr`.  Regardless of the evaluation of line 2, on line 3, `puts` outputs to the display, and returns `nil`. `puts n` is the last expression in the block, the return value is `nil`, the block always uses the last expression in it thus `nil` is returned to `.map`, and is used for transformation.  
+
 17. `select` cares about the truthiness of the block's return value only. `n + 2` is a truthy statement/expression, thus as `select` iterates over the array collection that's calling on it, each element is evaluated to line 2's (`true`), and is selected. `select` simply returns the collection, and because all of the 3 indexes in the array are "true" it returns the original collection (the length of the collection is the same also), which is  `[1, 2, 3]` and this is assigned to `arr`.  
+
 18. Because `select` cares _so much_ (LOL) about truthiness, it uses the blocks return value (an evaluation) to select, or not select the values in this array. The `puts` method in the `select` block, outputs to the display, however it returns `nil` which is evaluated as a `false` condition. It also is the last expression in the block, thus what happens in the line above is overruled and line 3 essentially returns `false`. Thus each index in the array is evaluated as false and not selected, `select` returns an empty array, which is assigned to `arr`. 
